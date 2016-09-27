@@ -19,28 +19,40 @@ namespace Tugas_1
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            DateTime now = DateTime.Now;
             txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " +
-                            (vsbMinimum.Maximum - vsbMaximum.Value).ToString();
+                            (vsbMaximum.Maximum - vsbMaximum.Value).ToString();
+
+            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum);
+            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum);
         }
 
         private void vsbMaximum_Scroll(object sender, ScrollEventArgs e)
         {
+            DateTime now = DateTime.Now;
             if (vsbMaximum.Value > vsbMinimum.Value)
             {
                 vsbMinimum.Value = vsbMaximum.Value;
             }
-            txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " + 
-                            (vsbMinimum.Maximum - vsbMaximum.Value).ToString();
+            txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " +
+                            (vsbMaximum.Maximum - vsbMaximum.Value).ToString();
+
+            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum);
+            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum);
         }
 
         private void vsbMinimum_Scroll(object sender, ScrollEventArgs e)
         {
+            DateTime now = DateTime.Now;
             if (vsbMaximum.Value > vsbMinimum.Value)
             {
                 vsbMaximum.Value = vsbMinimum.Value;
             }
             txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " +
-                            (vsbMinimum.Maximum - vsbMaximum.Value).ToString();
+                            (vsbMaximum.Maximum - vsbMaximum.Value).ToString();
+
+            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum);
+            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum);
         }
 
     }

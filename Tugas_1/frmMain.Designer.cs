@@ -42,8 +42,10 @@
             this.vsbMinimum = new System.Windows.Forms.VScrollBar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.dtpTanggalLahir = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -159,6 +161,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dtpTanggalLahir);
             this.tabPage2.ImageKey = "logo.jpg";
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
@@ -172,8 +175,15 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "black board copy.jpg");
-            this.imageList1.Images.SetKeyName(1, "logo.jpg");
+            this.imageList1.Images.SetKeyName(0, "logo.jpg");
+            this.imageList1.Images.SetKeyName(1, "SansationLight-thumb.png");
+            // 
+            // dtpTanggalLahir
+            // 
+            this.dtpTanggalLahir.Location = new System.Drawing.Point(94, 69);
+            this.dtpTanggalLahir.Name = "dtpTanggalLahir";
+            this.dtpTanggalLahir.Size = new System.Drawing.Size(199, 20);
+            this.dtpTanggalLahir.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -187,6 +197,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,6 +216,7 @@
         private System.Windows.Forms.Label lblMaximum1;
         private System.Windows.Forms.Label lblMinimum2;
         private System.Windows.Forms.Label lblMinimum1;
+        private System.Windows.Forms.DateTimePicker dtpTanggalLahir;
     }
 }
 
