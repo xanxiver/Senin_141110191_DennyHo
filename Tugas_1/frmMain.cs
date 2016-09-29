@@ -37,8 +37,8 @@ namespace Tugas_1
             txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " +
                             (vsbMaximum.Maximum - vsbMaximum.Value).ToString();
 
-            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum);
-            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum);
+            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum).Date;
+            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum).Date;
         }
 
         private void vsbMinimum_Scroll(object sender, ScrollEventArgs e)
@@ -51,8 +51,8 @@ namespace Tugas_1
             txtRange.Text = (vsbMinimum.Maximum - vsbMinimum.Value).ToString() + " -> " +
                             (vsbMaximum.Maximum - vsbMaximum.Value).ToString();
 
-            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum);
-            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum);
+            dtpTanggalLahir.MinDate = now.AddYears(vsbMaximum.Value - vsbMaximum.Maximum).Date;
+            dtpTanggalLahir.MaxDate = now.AddYears(vsbMinimum.Value - vsbMinimum.Maximum).Date;
         }
 
     }
