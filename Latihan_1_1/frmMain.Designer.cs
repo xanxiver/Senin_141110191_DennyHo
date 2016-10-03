@@ -1,4 +1,4 @@
-﻿namespace Tugas_1
+﻿namespace Latihan_1_1
 {
     partial class frmMain
     {

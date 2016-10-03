@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tugas_1.Properties
+namespace Latihan_1_1.Properties
 {
 
 
