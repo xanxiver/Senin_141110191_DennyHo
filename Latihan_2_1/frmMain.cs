@@ -30,12 +30,14 @@ namespace Latihan_2_1
                 awalTahun = awalTahun.AddDays(1);
             }
             nudTanggal.Maximum = DateTime.DaysInMonth(2016, (int) nudBulan.Value);
+            monthCalendar.UpdateBoldedDates();
         }
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
             DateTime tanggalDipilih = new DateTime(2016, (int)nudBulan.Value, (int)nudTanggal.Value);
             monthCalendar.AddAnnuallyBoldedDate(tanggalDipilih);
+            monthCalendar.UpdateBoldedDates();
         }
 
         private void btnHapus_Click(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace Latihan_2_1
                      monthCalendar.RemoveAnnuallyBoldedDate(i);
                 }
             }
+            monthCalendar.UpdateBoldedDates();
         }
 
         private void nudBulan_ValueChanged(object sender, EventArgs e)
