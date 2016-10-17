@@ -122,7 +122,7 @@ namespace Latihan_3_1
             {
                 return;
             }
-            changeText();
+            changeText(sender);
         }
         private void tscbFontColor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -131,7 +131,7 @@ namespace Latihan_3_1
             {
                 return;
             }
-            changeText();
+            rtbNote.SelectionColor = Color.FromName(tscbFontColor.Text);
         }
         private void tscbFontFamily_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -140,62 +140,84 @@ namespace Latihan_3_1
             {
                 return;
             }
-            changeText();
+            changeText(sender);
         }
         private void tscbFontSize_LostFocus(object sender, EventArgs e)
         {
-            changeText();
+            changeText(sender);
         }
         private void tscbFontColor_LostFocus(object sender, EventArgs e)
         {
-            changeText();
+            rtbNote.SelectionColor = Color.FromName(tscbFontColor.Text);
         }
         private void tscbFontFamily_LostFocus(object sender, EventArgs e)
         {
-            changeText();
+            changeText(sender);
         }
         private void tsbBold_Click(object sender, EventArgs e)
         {
             tsbBold.Checked ^= true;
-            changeText();
+            changeText(sender);
         }
 
         private void tsbItalic_Click(object sender, EventArgs e)
         {
             tsbItalic.Checked ^= true;
-            changeText();
+            changeText(sender);
         }
 
         private void tsbUnderline_Click(object sender, EventArgs e)
         {
             tsbUnderline.Checked ^= true;
-            changeText();
+            changeText(sender);
         }
 
-        private void changeText()
+        private void changeText(object sender = null)
         {
+            bool isBold, isItalic, isUnderline;
             int length = rtbNote.SelectionLength;
             int start = rtbNote.SelectionStart;
             float fontSize;
-            System.Drawing.FontStyle style = (tsbBold.Checked) ? FontStyle.Bold : FontStyle.Regular;
-            style |= (tsbItalic.Checked) ? FontStyle.Italic : FontStyle.Regular;
-            style |= (tsbUnderline.Checked) ? FontStyle.Underline : FontStyle.Regular;
+            string fontFamily;
+            System.Drawing.FontStyle currentStyle;
+            this.rtbNote.SelectionChanged -= new System.EventHandler(this.rtbNote_SelectionChanged);
+            for (int i = start; i < start + length; i++)
+            {
+                rtbNote.SelectionChanged -= new System.EventHandler(this.rtbNote_SelectionChanged);
+                rtbNote.Select(i, 1);
+                fontFamily = (tscbFontFamily.Text == "") ? rtbNote.SelectionFont.FontFamily.Name : tscbFontFamily.Text;
+                fontSize = (tscbFontSize.Text == "") ? rtbNote.SelectionFont.Size : Convert.ToSingle(tscbFontSize.Text);
 
-            if(tscbFontSize.Text == "")
-            {
-                fontSize = 11;
+                isBold = rtbNote.SelectionFont.Bold;
+                isItalic = rtbNote.SelectionFont.Italic;
+                isUnderline = rtbNote.SelectionFont.Underline;
+
+                if (sender != null && sender.ToString() == "tsbBold")
+                {
+                    isBold = tsbBold.Checked;
+                }
+                else if (sender != null && sender.ToString() == "tsbItalic")
+                {
+                    isItalic = tsbItalic.Checked;
+                }
+                else if (sender != null && sender.ToString() == "tsbUnderline")
+                {
+                    isUnderline = tsbUnderline.Checked;
+                }
+
+                currentStyle = (isBold) ? FontStyle.Bold : FontStyle.Regular;
+                currentStyle |= (isItalic) ? FontStyle.Italic : FontStyle.Regular;
+                currentStyle |= (isUnderline) ? FontStyle.Underline : FontStyle.Regular;
+
+                rtbNote.SelectionFont = new Font(fontFamily,
+                                                fontSize,
+                                                currentStyle);
             }
-            else
-            {
-                fontSize = Convert.ToSingle(tscbFontSize.Text);
-            }
-            rtbNote.SelectionFont = new Font(tscbFontFamily.Text,
-                                             fontSize,
-                                             style);
-            rtbNote.SelectionColor = Color.FromName(tscbFontColor.Text);
             
             rtbNote.Focus();
             rtbNote.Select(start, length);
+
+            this.rtbNote.SelectionChanged += new System.EventHandler(this.rtbNote_SelectionChanged);
         }
     }
 }

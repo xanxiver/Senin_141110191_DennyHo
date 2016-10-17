@@ -70,7 +70,7 @@
             this.tsbBold.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBold.Name = "tsbBold";
             this.tsbBold.Size = new System.Drawing.Size(23, 22);
-            this.tsbBold.Text = "toolStripButton1";
+            this.tsbBold.Text = "tsbBold";
             this.tsbBold.Click += new System.EventHandler(this.tsbBold_Click);
             // 
             // tsbItalic
@@ -80,7 +80,7 @@
             this.tsbItalic.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbItalic.Name = "tsbItalic";
             this.tsbItalic.Size = new System.Drawing.Size(23, 22);
-            this.tsbItalic.Text = "toolStripButton2";
+            this.tsbItalic.Text = "tsbItalic";
             this.tsbItalic.Click += new System.EventHandler(this.tsbItalic_Click);
             // 
             // tsbUnderline
@@ -90,7 +90,7 @@
             this.tsbUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUnderline.Name = "tsbUnderline";
             this.tsbUnderline.Size = new System.Drawing.Size(23, 22);
-            this.tsbUnderline.Text = "toolStripButton3";
+            this.tsbUnderline.Text = "tsbUnderline";
             this.tsbUnderline.Click += new System.EventHandler(this.tsbUnderline_Click);
             // 
             // tscbFontFamily
@@ -115,7 +115,6 @@
             this.rtbNote.Size = new System.Drawing.Size(413, 367);
             this.rtbNote.TabIndex = 1;
             this.rtbNote.Text = "";
-            this.rtbNote.SelectionChanged += new System.EventHandler(this.rtbNote_SelectionChanged);
             // 
             // frmMain
             // 
