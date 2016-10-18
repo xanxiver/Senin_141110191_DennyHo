@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Reflection;
 
-namespace Latihan_3_1
+namespace Latihan_4_1
 {
     public partial class frmMain : Form
     {
+        public bool isSave = true;
+        public string saveFileDirectory = "";
         public frmMain()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace Latihan_3_1
             {
                 tscbFontSize.Items.Add(i);
             }
-            
+
             InstalledFontCollection fontsCollection = new InstalledFontCollection();
             FontFamily[] fontFamilies = fontsCollection.Families;
             foreach (FontFamily font in fontFamilies)
@@ -35,22 +37,26 @@ namespace Latihan_3_1
                 tscbFontFamily.Items.Add(font.Name);
             }
 
+            this.tscbBackColor.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             this.tscbFontColor.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
 
             foreach (PropertyInfo color in colors)
             {
-                 if(color.PropertyType == typeof(System.Drawing.Color))
-                 {
-                     tscbFontColor.Items.Add(color.Name);
-                 }
+                if (color.PropertyType == typeof(System.Drawing.Color))
+                {
+                    tscbBackColor.Items.Add(color.Name);
+                    tscbFontColor.Items.Add(color.Name);
+                }
             }
 
             //inisiasi
             tscbFontSize.SelectedIndex = 3;
             tscbFontFamily.Text = "Calibri";
             tscbFontColor.Text = "Black";
+            tscbBackColor.Text = "White";
             changeText();
             //event
+            this.tscbBackColor.ComboBox.DrawItem += new DrawItemEventHandler(tscbFontColor_DrawItem);
             this.tscbFontColor.ComboBox.DrawItem += new DrawItemEventHandler(tscbFontColor_DrawItem);
         }
 
@@ -64,7 +70,7 @@ namespace Latihan_3_1
                 Brush tBrush = new SolidBrush(e.ForeColor);
 
                 g.FillRectangle(brush, e.Bounds);
-                string s = (string)this.tscbFontColor.Items[e.Index].ToString();
+                string s = (string)this.tscbBackColor.Items[e.Index].ToString();
                 SolidBrush b = new SolidBrush(Color.FromName(s));
                 // Draw a rectangle and fill it with the current color
                 // and add the name to the right of the color
@@ -82,11 +88,11 @@ namespace Latihan_3_1
             tsbBold.Checked = false;
             tsbItalic.Checked = false;
             tsbUnderline.Checked = false;
-            if(rtbNote.SelectionFont != null)
+            if (rtbNote.SelectionFont != null)
             {
                 tscbFontFamily.Text = rtbNote.SelectionFont.FontFamily.Name;
                 tscbFontSize.Text = rtbNote.SelectionFont.Size.ToString();
-                if(rtbNote.SelectionFont.Style.ToString().IndexOf("Bold") >= 0)
+                if (rtbNote.SelectionFont.Style.ToString().IndexOf("Bold") >= 0)
                 {
                     tsbBold.Checked = true;
                 }
@@ -104,8 +110,8 @@ namespace Latihan_3_1
                 tscbFontFamily.Text = "";
                 tscbFontSize.Text = "";
             }
-            
-            if(rtbNote.SelectionColor.Name == "0")
+
+            if (rtbNote.SelectionColor.Name == "0")
             {
                 tscbFontColor.Text = "Black";
             }
@@ -114,6 +120,7 @@ namespace Latihan_3_1
                 tscbFontColor.Text = rtbNote.SelectionColor.Name;
             }
 
+            tscbBackColor.Text = rtbNote.BackColor.Name;
         }
         private void tscbFontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,12 +133,27 @@ namespace Latihan_3_1
         }
         private void tscbFontColor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int length = rtbNote.SelectionLength;
+            int start = rtbNote.SelectionStart; 
             ToolStripComboBox tscb = (ToolStripComboBox)sender;
             if (!tscb.Focused)
             {
                 return;
             }
             rtbNote.SelectionColor = Color.FromName(tscbFontColor.Text);
+            rtbNote.Select(start, length);
+        }
+        private void tscbBackColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int length = rtbNote.SelectionLength;
+            int start = rtbNote.SelectionStart; 
+            ToolStripComboBox tscb = (ToolStripComboBox)sender;
+            if (!tscb.Focused)
+            {
+                return;
+            }
+            rtbNote.SelectionBackColor = Color.FromName(tscbBackColor.Text);
+            rtbNote.Select(start, length);
         }
         private void tscbFontFamily_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -148,7 +170,17 @@ namespace Latihan_3_1
         }
         private void tscbFontColor_LostFocus(object sender, EventArgs e)
         {
+            int length = rtbNote.SelectionLength;
+            int start = rtbNote.SelectionStart;
             rtbNote.SelectionColor = Color.FromName(tscbFontColor.Text);
+            rtbNote.Select(start, length);
+        }
+        private void tscbBackColor_LostFocus(object sender, EventArgs e)
+        {
+            int length = rtbNote.SelectionLength;
+            int start = rtbNote.SelectionStart;
+            rtbNote.SelectionBackColor = Color.FromName(tscbBackColor.Text);
+            rtbNote.Select(start, length);
         }
         private void tscbFontFamily_LostFocus(object sender, EventArgs e)
         {
@@ -172,6 +204,30 @@ namespace Latihan_3_1
             changeText(sender);
         }
 
+        private void saveFile()
+        {
+            DialogResult dr;
+            if (saveFileDirectory == "")
+            {
+                saveFileDialog1.Filter = "Text File | *.txt";
+                dr = saveFileDialog1.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    rtbNote.SaveFile(saveFileDialog1.FileName);
+                    saveFileDirectory = saveFileDialog1.FileName;
+                    this.Text = this.Text + " - " + saveFileDialog1.FileName;
+                }
+            }
+            else
+            {
+                dr = MessageBox.Show("File ini telah pernah disimpan. Apakah anda ingin menimpanya?", "Simpan File", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    rtbNote.SaveFile(saveFileDirectory);
+                }
+            }
+            isSave = true;
+        }
         private void changeText(object sender = null)
         {
             bool isBold, isItalic, isUnderline;
@@ -221,7 +277,7 @@ namespace Latihan_3_1
                 isBold = rtbNote.SelectionFont.Bold;
                 isItalic = rtbNote.SelectionFont.Italic;
                 isUnderline = rtbNote.SelectionFont.Underline;
-                
+
                 if (sender != null && sender.ToString() == "tsbBold")
                 {
                     isBold = tsbBold.Checked;
@@ -243,11 +299,48 @@ namespace Latihan_3_1
                                                 fontSize,
                                                 currentStyle);
             }
-            
+
             rtbNote.Focus();
             rtbNote.Select(start, length);
 
             this.rtbNote.SelectionChanged += new System.EventHandler(this.rtbNote_SelectionChanged);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFile();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr;
+            if (!isSave)
+            {
+                dr = MessageBox.Show("Apakah Anda ingin menyimpan file terlebih dahulu?", "Simpan file", MessageBoxButtons.YesNoCancel);
+                if (dr == DialogResult.Cancel)
+                {
+                    return;
+                }
+                else if (dr == DialogResult.Yes)
+                {
+                    saveFile();
+                }
+            }
+            dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                rtbNote.LoadFile(openFileDialog1.FileName);
+            }
+        }
+
+        private void rtbNote_TextChanged(object sender, EventArgs e)
+        {
+            isSave = false;
         }
     }
 }

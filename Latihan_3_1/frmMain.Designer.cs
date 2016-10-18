@@ -59,7 +59,7 @@
             // tscbFontSize
             // 
             this.tscbFontSize.Name = "tscbFontSize";
-            this.tscbFontSize.Size = new System.Drawing.Size(75, 25);
+            this.tscbFontSize.Size = new System.Drawing.Size(75, 27);
             this.tscbFontSize.SelectedIndexChanged += new System.EventHandler(this.tscbFontSize_SelectedIndexChanged);
             this.tscbFontSize.LostFocus += new System.EventHandler(this.tscbFontSize_LostFocus);
             // 
@@ -79,7 +79,7 @@
             this.tsbItalic.Image = ((System.Drawing.Image)(resources.GetObject("tsbItalic.Image")));
             this.tsbItalic.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbItalic.Name = "tsbItalic";
-            this.tsbItalic.Size = new System.Drawing.Size(23, 22);
+            this.tsbItalic.Size = new System.Drawing.Size(23, 24);
             this.tsbItalic.Text = "tsbItalic";
             this.tsbItalic.Click += new System.EventHandler(this.tsbItalic_Click);
             // 
@@ -89,21 +89,21 @@
             this.tsbUnderline.Image = ((System.Drawing.Image)(resources.GetObject("tsbUnderline.Image")));
             this.tsbUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUnderline.Name = "tsbUnderline";
-            this.tsbUnderline.Size = new System.Drawing.Size(23, 22);
+            this.tsbUnderline.Size = new System.Drawing.Size(23, 24);
             this.tsbUnderline.Text = "tsbUnderline";
             this.tsbUnderline.Click += new System.EventHandler(this.tsbUnderline_Click);
             // 
             // tscbFontFamily
             // 
             this.tscbFontFamily.Name = "tscbFontFamily";
-            this.tscbFontFamily.Size = new System.Drawing.Size(125, 25);
+            this.tscbFontFamily.Size = new System.Drawing.Size(125, 27);
             this.tscbFontFamily.SelectedIndexChanged += new System.EventHandler(this.tscbFontFamily_SelectedIndexChanged);
             this.tscbFontFamily.LostFocus += new System.EventHandler(this.tscbFontFamily_LostFocus);
             // 
             // tscbFontColor
             // 
             this.tscbFontColor.Name = "tscbFontColor";
-            this.tscbFontColor.Size = new System.Drawing.Size(125, 25);
+            this.tscbFontColor.Size = new System.Drawing.Size(125, 23);
             this.tscbFontColor.SelectedIndexChanged += new System.EventHandler(this.tscbFontColor_SelectedIndexChanged);
             this.tscbFontColor.LostFocus += new System.EventHandler(this.tscbFontColor_LostFocus);
             // 
