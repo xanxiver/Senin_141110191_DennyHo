@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Reflection;
 
-namespace Latihan_4_1
+namespace Latihan_5_1
 {
     public partial class frmMain : Form
     {
@@ -58,6 +58,16 @@ namespace Latihan_4_1
             //event
             this.tscbBackColor.ComboBox.DrawItem += new DrawItemEventHandler(tscbFontColor_DrawItem);
             this.tscbFontColor.ComboBox.DrawItem += new DrawItemEventHandler(tscbFontColor_DrawItem);
+
+            MdiClient client = Controls.OfType<MdiClient>().First();
+            client.GotFocus += (s, ev) =>
+            {
+                if (!MdiChildren.Any(x => x.Visible))
+                {
+                    client.SendToBack();
+                    rtbNote.BringToFront();
+                }
+            };
         }
 
         private void tscbFontColor_DrawItem(object sender, DrawItemEventArgs e)
@@ -122,6 +132,26 @@ namespace Latihan_4_1
 
             tscbBackColor.Text = rtbNote.BackColor.Name;
         }
+
+        private void rtbNote_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (rtbNote.SelectionLength == 0)
+                {
+                    contextMenuStrip1.Items[0].Enabled = false;
+                    contextMenuStrip1.Items[1].Enabled = false;
+                    contextMenuStrip1.Items[3].Enabled = false;
+                }
+                else
+                {
+                    contextMenuStrip1.Items[0].Enabled = true;
+                    contextMenuStrip1.Items[1].Enabled = true;
+                    contextMenuStrip1.Items[3].Enabled = true;
+                }
+                contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+        }
         private void tscbFontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             ToolStripComboBox tscb = (ToolStripComboBox)sender;
@@ -134,7 +164,7 @@ namespace Latihan_4_1
         private void tscbFontColor_SelectedIndexChanged(object sender, EventArgs e)
         {
             int length = rtbNote.SelectionLength;
-            int start = rtbNote.SelectionStart; 
+            int start = rtbNote.SelectionStart;
             ToolStripComboBox tscb = (ToolStripComboBox)sender;
             if (!tscb.Focused)
             {
@@ -146,7 +176,7 @@ namespace Latihan_4_1
         private void tscbBackColor_SelectedIndexChanged(object sender, EventArgs e)
         {
             int length = rtbNote.SelectionLength;
-            int start = rtbNote.SelectionStart; 
+            int start = rtbNote.SelectionStart;
             ToolStripComboBox tscb = (ToolStripComboBox)sender;
             if (!tscb.Focused)
             {
@@ -215,7 +245,7 @@ namespace Latihan_4_1
                 {
                     rtbNote.SaveFile(saveFileDialog1.FileName);
                     saveFileDirectory = saveFileDialog1.FileName;
-                    this.Text = "Form 4.1 - " + saveFileDialog1.FileName;
+                    this.Text = "Form 5.1. - " + saveFileDialog1.FileName;
                 }
             }
             else
@@ -336,13 +366,50 @@ namespace Latihan_4_1
             {
                 rtbNote.LoadFile(openFileDialog1.FileName);
                 saveFileDirectory = openFileDialog1.FileName;
-                this.Text = "Form 4.1 - " + openFileDialog1.FileName;
+                this.Text = "Form 5.1 - " + openFileDialog1.FileName;
             }
         }
 
         private void rtbNote_TextChanged(object sender, EventArgs e)
         {
             isSave = false;
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbNote.Cut();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbNote.Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText(TextDataFormat.Rtf))
+            {
+                rtbNote.SelectedRtf = Clipboard.GetData(DataFormats.Rtf).ToString();
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtbNote.SelectionLength == 0)
+            {
+                return;
+            }
+
+            rtbNote.SelectedText = "";
+        }
+
+        private void editorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEditorSetting formEditor = new frmEditorSetting();
+            formEditor.MdiParent = this;
+            formEditor.BringToFront();
+            rtbNote.SendToBack();
+            formEditor.Show();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,7 +429,7 @@ namespace Latihan_4_1
             }
             isSave = true;
             saveFileDirectory = "";
-            this.Text = "Form 4.1";
+            this.Text = "Form 5.1";
             rtbNote.Rtf = "";
         }
     }
