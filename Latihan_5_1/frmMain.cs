@@ -20,6 +20,17 @@ namespace Latihan_5_1
         {
             InitializeComponent();
         }
+        
+        public string getBackgroundColor()
+        {
+            return rtbNote.BackColor.Name;
+        }
+
+        public void setBackgroundColor(string color)
+        {
+            rtbNote.BackColor = Color.FromName(color);
+            rtbNote.SelectionBackColor = rtbNote.BackColor;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
