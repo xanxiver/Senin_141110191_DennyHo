@@ -89,8 +89,8 @@ namespace volleyball_problem
         {
             long a, b, modu, hasil = 0;
             modu = 1000000007;
-            a = Convert.ToInt64(txtA.Text);
-            b = Convert.ToInt64(txtB.Text);
+            a = Convert.ToInt64(Txt1.Text);
+            b = Convert.ToInt64(Txt2.Text);
             if (a < b)
             {
                 long temp = a;
@@ -100,22 +100,22 @@ namespace volleyball_problem
 
             if (a > 25 && a - b != 2)
             {
-                txtHasil.Text = "0";
+                TxtHasil.Text = "0";
             }
             else if (a - b < 2)
             {
-                txtHasil.Text = "0";
+                TxtHasil.Text = "0";
             }
             else if (a < 25)
             {
-                txtHasil.Text = "0";
+                TxtHasil.Text = "0";
             }
             else
             {
                 hasil = nCk(Math.Min(a + b - 1, 47), Math.Min(a - 1, 24), modu);
                 hasil *= fast_exp(2, a - 25, modu);
                 hasil %= modu;
-                txtHasil.Text = hasil.ToString();
+                TxtHasil.Text = hasil.ToString();
             }
         }
     }

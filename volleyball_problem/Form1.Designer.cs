@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtA = new System.Windows.Forms.TextBox();
-            this.txtB = new System.Windows.Forms.TextBox();
+            this.Txt1 = new System.Windows.Forms.TextBox();
+            this.Txt2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtHasil = new System.Windows.Forms.TextBox();
+            this.TxtHasil = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnHitung = new System.Windows.Forms.Button();
+            this.BtnHitung = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtA
+            // Txt1
             // 
-            this.txtA.Location = new System.Drawing.Point(137, 41);
-            this.txtA.Name = "txtA";
-            this.txtA.Size = new System.Drawing.Size(161, 20);
-            this.txtA.TabIndex = 0;
+            this.Txt1.Location = new System.Drawing.Point(137, 41);
+            this.Txt1.Name = "Txt1";
+            this.Txt1.Size = new System.Drawing.Size(161, 20);
+            this.Txt1.TabIndex = 0;
             // 
-            // txtB
+            // Txt2
             // 
-            this.txtB.Location = new System.Drawing.Point(137, 86);
-            this.txtB.Name = "txtB";
-            this.txtB.Size = new System.Drawing.Size(161, 20);
-            this.txtB.TabIndex = 1;
+            this.Txt2.Location = new System.Drawing.Point(137, 86);
+            this.Txt2.Name = "Txt2";
+            this.Txt2.Size = new System.Drawing.Size(161, 20);
+            this.Txt2.TabIndex = 1;
             // 
             // label1
             // 
@@ -79,13 +79,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Jumlah Kemungkinan";
             // 
-            // txtHasil
+            // TxtHasil
             // 
-            this.txtHasil.Enabled = false;
-            this.txtHasil.Location = new System.Drawing.Point(137, 131);
-            this.txtHasil.Name = "txtHasil";
-            this.txtHasil.Size = new System.Drawing.Size(161, 20);
-            this.txtHasil.TabIndex = 5;
+            this.TxtHasil.Enabled = false;
+            this.TxtHasil.Location = new System.Drawing.Point(137, 131);
+            this.TxtHasil.Name = "TxtHasil";
+            this.TxtHasil.Size = new System.Drawing.Size(161, 20);
+            this.TxtHasil.TabIndex = 5;
             // 
             // label4
             // 
@@ -96,29 +96,29 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Note : Hasil dimodulus 10^9 + 7";
             // 
-            // btnHitung
+            // BtnHitung
             // 
-            this.btnHitung.Location = new System.Drawing.Point(115, 213);
-            this.btnHitung.Name = "btnHitung";
-            this.btnHitung.Size = new System.Drawing.Size(94, 23);
-            this.btnHitung.TabIndex = 7;
-            this.btnHitung.Text = "Hitung";
-            this.btnHitung.UseVisualStyleBackColor = true;
-            this.btnHitung.Click += new System.EventHandler(this.btnHitung_Click);
+            this.BtnHitung.Location = new System.Drawing.Point(115, 213);
+            this.BtnHitung.Name = "BtnHitung";
+            this.BtnHitung.Size = new System.Drawing.Size(94, 23);
+            this.BtnHitung.TabIndex = 7;
+            this.BtnHitung.Text = "Hitung";
+            this.BtnHitung.UseVisualStyleBackColor = true;
+            this.BtnHitung.Click += new System.EventHandler(this.btnHitung_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 297);
-            this.Controls.Add(this.btnHitung);
+            this.Controls.Add(this.BtnHitung);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtHasil);
+            this.Controls.Add(this.TxtHasil);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtB);
-            this.Controls.Add(this.txtA);
+            this.Controls.Add(this.Txt2);
+            this.Controls.Add(this.Txt1);
             this.Name = "Form1";
             this.Text = "VolleyBall Problem";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -129,14 +129,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtA;
-        private System.Windows.Forms.TextBox txtB;
+        private System.Windows.Forms.TextBox Txt1;
+        private System.Windows.Forms.TextBox Txt2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtHasil;
+        private System.Windows.Forms.TextBox TxtHasil;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnHitung;
+        private System.Windows.Forms.Button BtnHitung;
     }
 }
 
