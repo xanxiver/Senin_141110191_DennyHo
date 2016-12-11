@@ -9,4 +9,8 @@ E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan
 E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.frmMain.resources
 E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\bin\Debug\MetroFramework.dll
 E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\bin\Debug\MetroFramework.Fonts.dll
-E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Registration.frmRegistrasi.resources
+E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.frmLihat.resources
+E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmEdit.resources
+E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmRegistrasi.resources
+E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.CustomForm.frmBrowse.resources
+E:\mikroskil\Semester 5\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmHapus.resources

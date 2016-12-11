@@ -58,7 +58,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Barang.cs" />
     <Compile Include="Class\Database.cs" />
+    <Compile Include="CustomForm\frmBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForm\frmBrowse.Designer.cs">
+      <DependentUpon>frmBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmEdit.Designer.cs">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmHapus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmHapus.Designer.cs">
+      <DependentUpon>frmHapus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmLihat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmLihat.Designer.cs">
+      <DependentUpon>frmLihat.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,12 +92,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\frmRegistrasiBarang.cs">
+    <Compile Include="Menu\frmRegistrasi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration\frmRegistrasiBarang.Designer.cs">
-      <DependentUpon>frmRegistrasiBarang.cs</DependentUpon>
+    <Compile Include="Menu\frmRegistrasi.Designer.cs">
+      <DependentUpon>frmRegistrasi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomForm\frmBrowse.resx">
+      <DependentUpon>frmBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmEdit.resx">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmHapus.resx">
+      <DependentUpon>frmHapus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmLihat.resx">
+      <DependentUpon>frmLihat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,8 +123,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registration\frmRegistrasiBarang.resx">
-      <DependentUpon>frmRegistrasiBarang.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\frmRegistrasi.resx">
+      <DependentUpon>frmRegistrasi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
