@@ -39,7 +39,10 @@ namespace Latihan_Pos.Menu
 
         private void btnHapusBarang_Click(object sender, EventArgs e)
         {
-            Database.DeleteData("tugas_pos.barang", Convert.ToInt32(txtIdBarang.Text));
+            Barang barang = new Barang();
+            barang.setId(Convert.ToInt32(txtIdBarang.Text));
+            Console.WriteLine(barang.getId());
+            barang.Delete();
             foreach (Control ctrl in mtpBarang.Controls)
             {
                 if (ctrl is TextBox)
@@ -67,7 +70,9 @@ namespace Latihan_Pos.Menu
 
         private void btnHapusCustomer_Click(object sender, EventArgs e)
         {
-            Database.DeleteData("tugas_pos.customer", Convert.ToInt32(txtIdCustomer.Text));
+            Customer customer = new Customer();
+            customer.setId(Convert.ToInt32(txtIdCustomer.Text));
+            customer.Delete();
             foreach (Control ctrl in mtpCustomer.Controls)
             {
                 if (ctrl is TextBox)
@@ -95,7 +100,9 @@ namespace Latihan_Pos.Menu
 
         private void btnHapusSupplier_Click(object sender, EventArgs e)
         {
-            Database.DeleteData("tugas_pos.supplier", Convert.ToInt32(txtIdSupplier.Text));
+            Supplier supplier = new Supplier();
+            supplier.setId(Convert.ToInt32(txtIdSupplier.Text));
+            supplier.Delete();
             foreach (Control ctrl in mtpSupplier.Controls)
             {
                 if (ctrl is TextBox)

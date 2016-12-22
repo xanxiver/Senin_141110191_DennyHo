@@ -23,7 +23,18 @@ namespace Latihan_Pos.CustomForm
         {
             InitializeComponent();
             this.tabel = tabel;
-            dgvBrowse.DataSource = Database.SelectData("tugas_pos." + this.tabel);
+            if (tabel == "barang")
+            {
+                dgvBrowse.DataSource = Barang.FindAll();
+            }
+            else if (tabel == "customer")
+            {
+                dgvBrowse.DataSource = Customer.FindAll();
+            }
+            else if (tabel == "supplier")
+            {
+                dgvBrowse.DataSource = Supplier.FindAll();
+            }
             dgvBrowse.Refresh();
             data = new Dictionary<string, string> { };
             dt = (DataTable)dgvBrowse.DataSource;

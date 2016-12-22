@@ -28,15 +28,17 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("kode", txtKode.Text);
-            parameters.Add("nama", txtNamaBarang.Text);
-            parameters.Add("harga_hpp", Convert.ToDecimal(txtHargaHpp.Text));
-            parameters.Add("harga_jual", Convert.ToDecimal(txtHargaJual.Text));
-            parameters.Add("jumlah", Convert.ToInt32(txtJumlahAwal.Text));
+            Barang barangBaru = new Barang();
+            barangBaru.setKode(txtKode.Text);
+            barangBaru.setNama(txtNamaBarang.Text);
+            barangBaru.setHargaHpp(Convert.ToDecimal(txtHargaHpp.Text));
+            barangBaru.setHargaJual(Convert.ToDecimal(txtHargaJual.Text));
+            barangBaru.setJumlah(Convert.ToInt32(txtJumlahAwal.Text));
+
             try 
 	        {
-                Database.InsertData("tugas_pos.barang", parameters);
+                barangBaru.Insert();
+                MessageBox.Show("Barang dengan kode " + barangBaru.getKode() + " berhasil ditambahkan.");
 	        }
 	        catch (Exception ex)
 	        {
@@ -44,29 +46,6 @@ namespace Latihan_Pos.Menu
 	        }
         }
 
-        private void btnSimpanCustomer_Click_1(object sender, EventArgs e)
-        {
-            foreach (Control ctrl in mtpCustomer.Controls)
-            {
-                if (ctrl is TextBox && ctrl.Text.Trim() == "")
-                {
-                    MessageBox.Show("Data tidak boleh ada yang kosong.");
-                    return;
-                }
-            }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("nama", txtNamaCustomer.Text);
-            parameters.Add("alamat", txtAlamatCustomer.Text);
-            parameters.Add("nomor_telepon", txtTeleponCustomer.Text);
-            try
-            {
-                Database.InsertData("tugas_pos.customer", parameters);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         private void mtpSimpanCustomer_Click(object sender, EventArgs e)
         {
             foreach (Control ctrl in mtpCustomer.Controls)
@@ -77,13 +56,16 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("nama", txtNamaCustomer.Text);
-            parameters.Add("alamat", txtAlamatCustomer.Text);
-            parameters.Add("nomor_telepon", txtTeleponCustomer.Text);
+            Customer custBaru = new Customer();
+            custBaru.setNama(txtNamaCustomer.Text);
+            custBaru.setAlamat(txtAlamatCustomer.Text);
+            custBaru.setKodePos(txtKodePosCustomer.Text);
+            custBaru.setKota(txtKotaCustomer.Text);
+            custBaru.setNomorTelepon(txtTeleponCustomer.Text);
             try
             {
-                Database.InsertData("tugas_pos.customer", parameters);
+                custBaru.Insert();
+                MessageBox.Show("Customer dengan nama " + custBaru.getNama() + " berhasil dimasukkan.");
             }
             catch (Exception ex)
             {
@@ -101,13 +83,16 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("nama", txtNamaSupplier.Text);
-            parameters.Add("alamat", txtAlamatSupplier.Text);
-            parameters.Add("nomor_telepon", txtTeleponSupplier.Text);
+            Supplier suppBaru = new Supplier();
+            suppBaru.setNama(txtNamaSupplier.Text);
+            suppBaru.setAlamat(txtAlamatSupplier.Text);
+            suppBaru.setKodePos(txtKodePosSupplier.Text);
+            suppBaru.setKota(txtKotaSupplier.Text);
+            suppBaru.setNomorTelepon(txtTeleponSupplier.Text);
             try
             {
-                Database.InsertData("tugas_pos.supplier", parameters);
+                suppBaru.Insert();
+                MessageBox.Show("Supplier dengan nama " + suppBaru.getNama() + " berhasil dimasukkan.");
             }
             catch (Exception ex)
             {

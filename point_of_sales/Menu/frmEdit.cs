@@ -51,11 +51,16 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("nama", txtNamaCustomer.Text);
-            parameters.Add("alamat", txtAlamatCustomer.Text);
-            parameters.Add("nomor_telepon", txtTeleponCustomer.Text);
-            Database.UpdateData("tugas_pos.customer", parameters, Convert.ToInt32(txtIdCustomer.Text));
+
+            Customer customer = new Customer();
+            customer.setId(Convert.ToInt32(txtIdCustomer.Text));
+            customer.setAlamat(txtAlamatCustomer.Text);
+            customer.setNama(txtNamaCustomer.Text);
+            customer.setKodePos(txtKodePosCustomer.Text);
+            customer.setKota(txtKotaCustomer.Text);
+            customer.setNomorTelepon(txtTeleponCustomer.Text);
+            customer.Update();
+            MessageBox.Show("Customer dengan nama " + customer.getNama() + " berhasil diupdate.");
         }
 
         private void btnBrowseSupplier_Click(object sender, EventArgs e)
@@ -83,11 +88,16 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("nama", txtNamaSupplier.Text);
-            parameters.Add("alamat", txtAlamatSupplier.Text);
-            parameters.Add("nomor_telepon", txtTeleponSupplier.Text);
-            Database.UpdateData("tugas_pos.supplier", parameters, Convert.ToInt32(txtIdSupplier.Text));
+
+            Supplier supplier = new Supplier();
+            supplier.setId(Convert.ToInt32(txtIdSupplier.Text));
+            supplier.setAlamat(txtAlamatSupplier.Text);
+            supplier.setNama(txtNamaSupplier.Text);
+            supplier.setKodePos(txtKodePosSupplier.Text);
+            supplier.setKota(txtKotaSupplier.Text);
+            supplier.setNomorTelepon(txtTeleponSupplier.Text);
+            supplier.Update();
+            MessageBox.Show("Supplier dengan nama " + supplier.getNama() + " berhasil diupdate.");
         }
 
         private void btnBrowseBarang_Click(object sender, EventArgs e)
@@ -117,13 +127,16 @@ namespace Latihan_Pos.Menu
                     return;
                 }
             }
-            Dictionary<string, object> parameters = new Dictionary<string, object> { };
-            parameters.Add("kode", txtKode.Text);
-            parameters.Add("nama", txtNamaBarang.Text);
-            parameters.Add("harga_hpp", Convert.ToDecimal(txtHargaHpp.Text));
-            parameters.Add("harga_jual", Convert.ToDecimal(txtHargaJual.Text));
-            parameters.Add("jumlah", Convert.ToInt32(txtJumlahAwal.Text));
-            Database.UpdateData("tugas_pos.barang", parameters, Convert.ToInt32(txtIdBarang.Text));
+
+            Barang barang = new Barang();
+            barang.setId(Convert.ToInt32(txtIdBarang.Text));
+            barang.setKode(txtKode.Text);
+            barang.setNama(txtNamaBarang.Text);
+            barang.setHargaHpp(Convert.ToDecimal(txtHargaHpp.Text));
+            barang.setHargaJual(Convert.ToDecimal(txtHargaJual.Text));
+            barang.setJumlah(Convert.ToInt32(txtJumlahAwal.Text));
+            barang.Update();
+            MessageBox.Show("Barang dengan kode " + barang.getKode() + " berhasil diupdate.");
         }
     }
 }

@@ -8,83 +8,83 @@ using Sql = MySql.Data.MySqlClient;
 
 namespace Latihan_Pos.Class
 {
-    class Barang
+    class Supplier
     {
-        private static string nama_tabel = "tugas_pos.barang";
+        private static string nama_tabel = "tugas_pos.supplier";
         private int id;
-        private string kode;
         private string nama;
-        private int jumlah;
-        private decimal harga_hpp;
-        private decimal harga_jual;
+        private string alamat;
+        private string kota;
+        private string kode_pos;
+        private string nomor_telepon;
         private DateTime created_at;
         private DateTime updated_at;
 
-        public Barang()
+        public Supplier()
         { }
-
-        public int getId()
-        {
-            return this.id;
-        }
-        public Barang setId(int id)
+        public Supplier setId(int id)
         {
             this.id = id;
             return this;
         }
 
-        public string getKode()
+        public int getId()
         {
-            return this.kode;
-        }
-        
-        public Barang setKode(string kode)
-        {
-            this.kode = kode;
-            return this;
+            return this.id;
         }
 
         public string getNama()
         {
             return this.nama;
         }
-
-        public Barang setNama(string nama)
+        public Supplier setNama(string nama)
         {
             this.nama = nama;
             return this;
         }
 
-        public int getJumlah()
+        public Supplier setAlamat(string alamat)
         {
-            return this.jumlah;
-        }
-        public Barang setJumlah(int jumlah)
-        {
-            this.jumlah = jumlah;
+            this.alamat = alamat;
             return this;
         }
 
-        public decimal getHargaHpp()
+        public string getAlamat()
         {
-            return this.harga_hpp;
+            return this.alamat;
         }
 
-        public Barang setHargaHpp(decimal harga_hpp)
+        public Supplier setKota(string kota)
         {
-            this.harga_hpp = harga_hpp;
+            this.kota = kota;
             return this;
         }
 
-        public decimal getHargaJual()
+        public string getKota()
         {
-            return this.harga_jual;
+            return this.kota;
         }
 
-        public Barang setHargaJual(decimal harga_jual)
+        public Supplier setKodePos(string kode_pos)
         {
-            this.harga_jual = harga_jual;
+            this.kode_pos = kode_pos;
             return this;
+        }
+
+        public string getKodePos()
+        {
+            return this.kode_pos;
+        }
+
+        public Supplier setNomorTelepon(string nomor_telepon)
+        {
+            this.nomor_telepon = nomor_telepon;
+            return this;
+        }
+
+        public string getNomorTelepon()
+        {
+            return this.nomor_telepon;
         }
 
         public DateTime getCreatedAt()
@@ -92,7 +92,7 @@ namespace Latihan_Pos.Class
             return this.created_at;
         }
 
-        public Barang setCreatedAt(DateTime created_at)
+        public Supplier setCreatedAt(DateTime created_at)
         {
             this.created_at = created_at;
             return this;
@@ -103,17 +103,16 @@ namespace Latihan_Pos.Class
             return this.updated_at;
         }
 
-        public Barang setUpdatedAt(DateTime updated_at)
+        public Supplier setUpdatedAt(DateTime updated_at)
         {
             this.updated_at = updated_at;
             return this;
         }
-
         public static DataTable FindAll()
         {
             Database.OpenConnection();
             string select = String.Concat("SELECT * FROM ", nama_tabel);
-            
+
             Sql.MySqlDataAdapter da = new Sql.MySqlDataAdapter(select, Database.conn);
 
             Sql.MySqlCommandBuilder cb = new Sql.MySqlCommandBuilder(da);
@@ -134,19 +133,18 @@ namespace Latihan_Pos.Class
             }
             return dt;
         }
-
         public void Insert()
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = String.Concat("INSERT INTO ", nama_tabel, "(nama ,");
-            cmdText += " kode, jumlah, harga_hpp, harga_jual, created_at, updated_at) ";
-            cmdText += " VALUES (@nama, @kode, @jumlah, @harga_hpp, @harga_jual, @created_at, @updated_at)";
+            cmdText += " kota, alamat, kode_pos, nomor_telepon, created_at, updated_at) ";
+            cmdText += " VALUES (@nama, @alamat, @kota, @kode_pos, @nomor_telepon, @created_at, @updated_at)";
 
             cmd.Parameters.AddWithValue("@nama", this.nama);
-            cmd.Parameters.AddWithValue("@kode", this.kode);
-            cmd.Parameters.AddWithValue("@jumlah", this.jumlah);
-            cmd.Parameters.AddWithValue("@harga_hpp", this.harga_hpp);
-            cmd.Parameters.AddWithValue("@harga_jual", this.harga_jual);
+            cmd.Parameters.AddWithValue("@alamat", this.alamat);
+            cmd.Parameters.AddWithValue("@kota", this.kota);
+            cmd.Parameters.AddWithValue("@kode_pos", this.kode_pos);
+            cmd.Parameters.AddWithValue("@nomor_telepon", this.nomor_telepon);
             cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
 
@@ -168,15 +166,15 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = "UPDATE " + nama_tabel + " SET ";
-            cmdText += "kode = @kode, nama = @nama, jumlah = @jumlah, harga_hpp = @harga_hpp";
-            cmdText += ", harga_jual = @harga_jual, updated_at = @updated_at WHERE id = @id";
+            cmdText += "alamat = @alamat, nama = @nama, kota = @kota, kode_pos = @kode_pos";
+            cmdText += ", nomor_telepon = @nomor_telepon, updated_at = @updated_at WHERE id = @id";
 
-            cmd.Parameters.AddWithValue("@nama", this.nama);
-            cmd.Parameters.AddWithValue("@kode", this.kode);
-            cmd.Parameters.AddWithValue("@jumlah", this.jumlah);
-            cmd.Parameters.AddWithValue("@harga_hpp", this.harga_hpp);
-            cmd.Parameters.AddWithValue("@harga_jual", this.harga_jual);
             cmd.Parameters.AddWithValue("@id", this.id);
+            cmd.Parameters.AddWithValue("@nama", this.nama);
+            cmd.Parameters.AddWithValue("@alamat", this.alamat);
+            cmd.Parameters.AddWithValue("@kota", this.kota);
+            cmd.Parameters.AddWithValue("@kode_pos", this.kode_pos);
+            cmd.Parameters.AddWithValue("@nomor_telepon", this.nomor_telepon);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
             cmd.CommandText = cmdText;
             try
@@ -196,7 +194,6 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = "DELETE FROM " + nama_tabel + " WHERE id = @id";
-            Console.WriteLine(this.id);
             cmd.Parameters.AddWithValue("@id", this.id);
             cmd.CommandText = cmdText;
             try

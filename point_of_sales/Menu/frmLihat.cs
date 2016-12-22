@@ -26,11 +26,11 @@ namespace Latihan_Pos
         private void frmLihat_Shown(object sender, EventArgs e)
         {
             mtcDaftar.SelectTab(0);
-            dgvBarang.DataSource = Database.SelectData("tugas_pos.barang");
+            dgvBarang.DataSource = Barang.FindAll();
             dgvBarang.Refresh();
-            dgvCustomer.DataSource = Database.SelectData("tugas_pos.customer");
+            dgvCustomer.DataSource = Customer.FindAll();
             dgvCustomer.Refresh();
-            dgvSupplier.DataSource = Database.SelectData("tugas_pos.supplier");
+            dgvSupplier.DataSource = Supplier.FindAll();
             dgvSupplier.Refresh();
 
             dtBarang = (DataTable) dgvBarang.DataSource;
