@@ -41,18 +41,6 @@
             this.txtJumlahAwal = new System.Windows.Forms.TextBox();
             this.txtNamaBarang = new System.Windows.Forms.TextBox();
             this.txtKode = new System.Windows.Forms.TextBox();
-            this.mtpSupplier = new MetroFramework.Controls.MetroTabPage();
-            this.txtKotaSupplier = new System.Windows.Forms.TextBox();
-            this.txtKodePosSupplier = new System.Windows.Forms.TextBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.btnSimpanSupplier = new MetroFramework.Controls.MetroButton();
-            this.txtTeleponSupplier = new System.Windows.Forms.TextBox();
-            this.txtAlamatSupplier = new System.Windows.Forms.TextBox();
-            this.txtNamaSupplier = new System.Windows.Forms.TextBox();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.mtpCustomer = new MetroFramework.Controls.MetroTabPage();
             this.txtKotaCustomer = new System.Windows.Forms.TextBox();
             this.txtKodePosCustomer = new System.Windows.Forms.TextBox();
@@ -65,10 +53,22 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.mtpSupplier = new MetroFramework.Controls.MetroTabPage();
+            this.txtKotaSupplier = new System.Windows.Forms.TextBox();
+            this.txtKodePosSupplier = new System.Windows.Forms.TextBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.btnSimpanSupplier = new MetroFramework.Controls.MetroButton();
+            this.txtTeleponSupplier = new System.Windows.Forms.TextBox();
+            this.txtAlamatSupplier = new System.Windows.Forms.TextBox();
+            this.txtNamaSupplier = new System.Windows.Forms.TextBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.mtcRegistrasi.SuspendLayout();
             this.mtpBarang.SuspendLayout();
-            this.mtpSupplier.SuspendLayout();
             this.mtpCustomer.SuspendLayout();
+            this.mtpSupplier.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroLabel2
@@ -93,7 +93,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(123, 60);
+            this.metroLabel3.Location = new System.Drawing.Point(123, 57);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(59, 25);
             this.metroLabel3.TabIndex = 2;
@@ -121,7 +121,7 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(72, 90);
+            this.metroLabel5.Location = new System.Drawing.Point(72, 85);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(110, 25);
             this.metroLabel5.TabIndex = 4;
@@ -135,7 +135,7 @@
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(82, 117);
+            this.metroLabel6.Location = new System.Drawing.Point(82, 112);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(100, 25);
             this.metroLabel6.TabIndex = 5;
@@ -233,126 +233,6 @@
             this.txtKode.Name = "txtKode";
             this.txtKode.Size = new System.Drawing.Size(283, 20);
             this.txtKode.TabIndex = 7;
-            // 
-            // mtpSupplier
-            // 
-            this.mtpSupplier.Controls.Add(this.txtKotaSupplier);
-            this.mtpSupplier.Controls.Add(this.txtKodePosSupplier);
-            this.mtpSupplier.Controls.Add(this.metroLabel13);
-            this.mtpSupplier.Controls.Add(this.metroLabel12);
-            this.mtpSupplier.Controls.Add(this.btnSimpanSupplier);
-            this.mtpSupplier.Controls.Add(this.txtTeleponSupplier);
-            this.mtpSupplier.Controls.Add(this.txtAlamatSupplier);
-            this.mtpSupplier.Controls.Add(this.txtNamaSupplier);
-            this.mtpSupplier.Controls.Add(this.metroLabel11);
-            this.mtpSupplier.Controls.Add(this.metroLabel10);
-            this.mtpSupplier.Controls.Add(this.metroLabel9);
-            this.mtpSupplier.HorizontalScrollbarBarColor = true;
-            this.mtpSupplier.Location = new System.Drawing.Point(4, 35);
-            this.mtpSupplier.Name = "mtpSupplier";
-            this.mtpSupplier.Size = new System.Drawing.Size(599, 225);
-            this.mtpSupplier.TabIndex = 2;
-            this.mtpSupplier.Text = "Supplier";
-            this.mtpSupplier.VerticalScrollbarBarColor = true;
-            // 
-            // txtKotaSupplier
-            // 
-            this.txtKotaSupplier.Location = new System.Drawing.Point(182, 119);
-            this.txtKotaSupplier.Name = "txtKotaSupplier";
-            this.txtKotaSupplier.Size = new System.Drawing.Size(307, 20);
-            this.txtKotaSupplier.TabIndex = 11;
-            // 
-            // txtKodePosSupplier
-            // 
-            this.txtKodePosSupplier.Location = new System.Drawing.Point(182, 93);
-            this.txtKodePosSupplier.Name = "txtKodePosSupplier";
-            this.txtKodePosSupplier.Size = new System.Drawing.Size(307, 20);
-            this.txtKodePosSupplier.TabIndex = 7;
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(128, 114);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(48, 25);
-            this.metroLabel13.TabIndex = 10;
-            this.metroLabel13.Text = "Kota";
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(90, 88);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(86, 25);
-            this.metroLabel12.TabIndex = 9;
-            this.metroLabel12.Text = "Kode Pos";
-            // 
-            // btnSimpanSupplier
-            // 
-            this.btnSimpanSupplier.Location = new System.Drawing.Point(414, 171);
-            this.btnSimpanSupplier.Name = "btnSimpanSupplier";
-            this.btnSimpanSupplier.Size = new System.Drawing.Size(75, 23);
-            this.btnSimpanSupplier.TabIndex = 13;
-            this.btnSimpanSupplier.Text = "Simpan";
-            this.btnSimpanSupplier.Click += new System.EventHandler(this.btnSimpanSupplier_Click);
-            // 
-            // txtTeleponSupplier
-            // 
-            this.txtTeleponSupplier.Location = new System.Drawing.Point(182, 145);
-            this.txtTeleponSupplier.Name = "txtTeleponSupplier";
-            this.txtTeleponSupplier.Size = new System.Drawing.Size(307, 20);
-            this.txtTeleponSupplier.TabIndex = 12;
-            // 
-            // txtAlamatSupplier
-            // 
-            this.txtAlamatSupplier.Location = new System.Drawing.Point(182, 67);
-            this.txtAlamatSupplier.Name = "txtAlamatSupplier";
-            this.txtAlamatSupplier.Size = new System.Drawing.Size(307, 20);
-            this.txtAlamatSupplier.TabIndex = 6;
-            // 
-            // txtNamaSupplier
-            // 
-            this.txtNamaSupplier.Location = new System.Drawing.Point(182, 41);
-            this.txtNamaSupplier.Name = "txtNamaSupplier";
-            this.txtNamaSupplier.Size = new System.Drawing.Size(307, 20);
-            this.txtNamaSupplier.TabIndex = 5;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(74, 140);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(102, 25);
-            this.metroLabel11.TabIndex = 4;
-            this.metroLabel11.Text = "No Telepon";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel10.Location = new System.Drawing.Point(108, 62);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(68, 25);
-            this.metroLabel10.TabIndex = 3;
-            this.metroLabel10.Text = "Alamat";
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(117, 36);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(59, 25);
-            this.metroLabel9.TabIndex = 2;
-            this.metroLabel9.Text = "Nama";
             // 
             // mtpCustomer
             // 
@@ -474,6 +354,126 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Nama";
             // 
+            // mtpSupplier
+            // 
+            this.mtpSupplier.Controls.Add(this.txtKotaSupplier);
+            this.mtpSupplier.Controls.Add(this.txtKodePosSupplier);
+            this.mtpSupplier.Controls.Add(this.metroLabel13);
+            this.mtpSupplier.Controls.Add(this.metroLabel12);
+            this.mtpSupplier.Controls.Add(this.btnSimpanSupplier);
+            this.mtpSupplier.Controls.Add(this.txtTeleponSupplier);
+            this.mtpSupplier.Controls.Add(this.txtAlamatSupplier);
+            this.mtpSupplier.Controls.Add(this.txtNamaSupplier);
+            this.mtpSupplier.Controls.Add(this.metroLabel11);
+            this.mtpSupplier.Controls.Add(this.metroLabel10);
+            this.mtpSupplier.Controls.Add(this.metroLabel9);
+            this.mtpSupplier.HorizontalScrollbarBarColor = true;
+            this.mtpSupplier.Location = new System.Drawing.Point(4, 35);
+            this.mtpSupplier.Name = "mtpSupplier";
+            this.mtpSupplier.Size = new System.Drawing.Size(599, 225);
+            this.mtpSupplier.TabIndex = 2;
+            this.mtpSupplier.Text = "Supplier";
+            this.mtpSupplier.VerticalScrollbarBarColor = true;
+            // 
+            // txtKotaSupplier
+            // 
+            this.txtKotaSupplier.Location = new System.Drawing.Point(182, 119);
+            this.txtKotaSupplier.Name = "txtKotaSupplier";
+            this.txtKotaSupplier.Size = new System.Drawing.Size(307, 20);
+            this.txtKotaSupplier.TabIndex = 11;
+            // 
+            // txtKodePosSupplier
+            // 
+            this.txtKodePosSupplier.Location = new System.Drawing.Point(182, 93);
+            this.txtKodePosSupplier.Name = "txtKodePosSupplier";
+            this.txtKodePosSupplier.Size = new System.Drawing.Size(307, 20);
+            this.txtKodePosSupplier.TabIndex = 7;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel13.Location = new System.Drawing.Point(128, 114);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(48, 25);
+            this.metroLabel13.TabIndex = 10;
+            this.metroLabel13.Text = "Kota";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel12.Location = new System.Drawing.Point(90, 88);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(86, 25);
+            this.metroLabel12.TabIndex = 9;
+            this.metroLabel12.Text = "Kode Pos";
+            // 
+            // btnSimpanSupplier
+            // 
+            this.btnSimpanSupplier.Location = new System.Drawing.Point(414, 171);
+            this.btnSimpanSupplier.Name = "btnSimpanSupplier";
+            this.btnSimpanSupplier.Size = new System.Drawing.Size(75, 23);
+            this.btnSimpanSupplier.TabIndex = 13;
+            this.btnSimpanSupplier.Text = "Simpan";
+            this.btnSimpanSupplier.Click += new System.EventHandler(this.btnSimpanSupplier_Click);
+            // 
+            // txtTeleponSupplier
+            // 
+            this.txtTeleponSupplier.Location = new System.Drawing.Point(182, 145);
+            this.txtTeleponSupplier.Name = "txtTeleponSupplier";
+            this.txtTeleponSupplier.Size = new System.Drawing.Size(307, 20);
+            this.txtTeleponSupplier.TabIndex = 12;
+            // 
+            // txtAlamatSupplier
+            // 
+            this.txtAlamatSupplier.Location = new System.Drawing.Point(182, 67);
+            this.txtAlamatSupplier.Name = "txtAlamatSupplier";
+            this.txtAlamatSupplier.Size = new System.Drawing.Size(307, 20);
+            this.txtAlamatSupplier.TabIndex = 6;
+            // 
+            // txtNamaSupplier
+            // 
+            this.txtNamaSupplier.Location = new System.Drawing.Point(182, 41);
+            this.txtNamaSupplier.Name = "txtNamaSupplier";
+            this.txtNamaSupplier.Size = new System.Drawing.Size(307, 20);
+            this.txtNamaSupplier.TabIndex = 5;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel11.Location = new System.Drawing.Point(74, 140);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(102, 25);
+            this.metroLabel11.TabIndex = 4;
+            this.metroLabel11.Text = "No Telepon";
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel10.Location = new System.Drawing.Point(108, 62);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(68, 25);
+            this.metroLabel10.TabIndex = 3;
+            this.metroLabel10.Text = "Alamat";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel9.Location = new System.Drawing.Point(117, 36);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(59, 25);
+            this.metroLabel9.TabIndex = 2;
+            this.metroLabel9.Text = "Nama";
+            // 
             // frmRegistrasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,10 +487,10 @@
             this.mtcRegistrasi.ResumeLayout(false);
             this.mtpBarang.ResumeLayout(false);
             this.mtpBarang.PerformLayout();
-            this.mtpSupplier.ResumeLayout(false);
-            this.mtpSupplier.PerformLayout();
             this.mtpCustomer.ResumeLayout(false);
             this.mtpCustomer.PerformLayout();
+            this.mtpSupplier.ResumeLayout(false);
+            this.mtpSupplier.PerformLayout();
             this.ResumeLayout(false);
 
         }

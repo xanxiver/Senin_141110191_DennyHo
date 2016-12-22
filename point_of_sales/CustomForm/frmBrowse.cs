@@ -35,6 +35,14 @@ namespace Latihan_Pos.CustomForm
             {
                 dgvBrowse.DataSource = Supplier.FindAll();
             }
+            else if (tabel == "penjualan")
+            {
+                dgvBrowse.DataSource = Penjualan.FindAll();
+            }
+            else if (tabel == "pembelian")
+            {
+                dgvBrowse.DataSource = Pembelian.FindAll();
+            }
             dgvBrowse.Refresh();
             data = new Dictionary<string, string> { };
             dt = (DataTable)dgvBrowse.DataSource;

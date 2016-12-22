@@ -133,6 +133,41 @@ namespace Latihan_Pos.Class
             }
             return dt;
         }
+
+        public static Supplier FindOneById(int id)
+        {
+            Database.OpenConnection();
+            string select = String.Concat("SELECT * FROM ", nama_tabel, " WHERE id = @id");
+
+            Sql.MySqlDataAdapter da = new Sql.MySqlDataAdapter();
+
+            da.SelectCommand = new Sql.MySqlCommand(select, Database.conn);
+            da.SelectCommand.Parameters.AddWithValue("@id", id);
+
+            Sql.MySqlCommandBuilder cb = new Sql.MySqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            Database.CloseConnection();
+
+            Supplier supp = new Supplier();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].Rows[0];
+                supp.setId(Convert.ToInt32(dr["id"]));
+                supp.setNama(dr["nama"].ToString());
+                supp.setAlamat(dr["alamat"].ToString());
+                supp.setNomorTelepon(dr["nomor_telepon"].ToString());
+                supp.setKodePos(dr["kode_pos"].ToString());
+                supp.setKota(dr["kota"].ToString());
+                supp.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
+                supp.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
+
+                return supp;
+            }
+
+            return null;
+        }
+
         public void Insert()
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();

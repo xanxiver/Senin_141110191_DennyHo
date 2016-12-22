@@ -135,6 +135,40 @@ namespace Latihan_Pos.Class
             return dt;
         }
 
+        public static Barang FindOneById(int id)
+        {
+            Database.OpenConnection();
+            string select = String.Concat("SELECT * FROM ", nama_tabel, " WHERE id = @id");
+
+            Sql.MySqlDataAdapter da = new Sql.MySqlDataAdapter();
+
+            da.SelectCommand = new Sql.MySqlCommand(select, Database.conn);
+            da.SelectCommand.Parameters.AddWithValue("@id", id);
+
+            Sql.MySqlCommandBuilder cb = new Sql.MySqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            Database.CloseConnection();
+
+            Barang barang = new Barang();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].Rows[0];
+                barang.setId(Convert.ToInt32(dr["id"]));
+                barang.setNama(dr["nama"].ToString());
+                barang.setKode(dr["kode"].ToString());
+                barang.setJumlah(Convert.ToInt32(dr["jumlah"]));
+                barang.setHargaHpp(Convert.ToDecimal(dr["harga_hpp"]));
+                barang.setHargaJual(Convert.ToDecimal(dr["harga_jual"]));
+                barang.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
+                barang.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
+
+                return barang;
+            }
+
+            return null;
+        }
+
         public void Insert()
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
@@ -196,7 +230,6 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = "DELETE FROM " + nama_tabel + " WHERE id = @id";
-            Console.WriteLine(this.id);
             cmd.Parameters.AddWithValue("@id", this.id);
             cmd.CommandText = cmdText;
             try

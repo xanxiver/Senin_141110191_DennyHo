@@ -8,82 +8,58 @@ using Sql = MySql.Data.MySqlClient;
 
 namespace Latihan_Pos.Class
 {
-    class Customer
+    class Penjualan
     {
-        private static string nama_tabel = "tugas_pos.customer";
+        private static string nama_tabel = "tugas_pos.penjualan";
         private int id;
-        private string nama;
-        private string alamat;
-        private string kota;
-        private string kode_pos;
-        private string nomor_telepon;
+        private string kode;
+        private Customer customer;
+        private decimal total_harga;
         private DateTime created_at;
         private DateTime updated_at;
 
-        public Customer()
+        public Penjualan()
         { }
+
         public int getId()
         {
             return this.id;
         }
-        public Customer setId(int id)
+        public Penjualan setId(int id)
         {
             this.id = id;
             return this;
         }
-
-        public string getNama()
+        public string getKode()
         {
-            return this.nama;
+            return this.kode;
         }
-        public Customer setNama(string nama)
+
+        public Penjualan setKode(string kode)
         {
-            this.nama = nama;
+            this.kode = kode;
             return this;
         }
 
-        public Customer setAlamat(string alamat)
+        public Customer getCustomer()
         {
-            this.alamat = alamat;
+            return this.customer;
+        }
+        public Penjualan setCustomer(Customer customer)
+        {
+            this.customer = customer;
             return this;
         }
 
-        public string getAlamat()
+        public decimal getTotalHarga()
         {
-            return this.alamat;
+            return this.total_harga;
         }
 
-        public Customer setKota(string kota)
+        public Penjualan setTotalHarga(decimal harga_hpp)
         {
-            this.kota = kota;
+            this.total_harga = harga_hpp;
             return this;
-        }
-
-        public string getKota()
-        {
-            return this.kota;
-        }
-
-        public Customer setKodePos(string kode_pos)
-        {
-            this.kode_pos = kode_pos;
-            return this;
-        }
-
-        public string getKodePos()
-        {
-            return this.kode_pos;
-        }
-
-        public Customer setNomorTelepon(string nomor_telepon)
-        {
-            this.nomor_telepon = nomor_telepon;
-            return this;
-        }
-
-        public string getNomorTelepon()
-        {
-            return this.nomor_telepon;
         }
 
         public DateTime getCreatedAt()
@@ -91,7 +67,7 @@ namespace Latihan_Pos.Class
             return this.created_at;
         }
 
-        public Customer setCreatedAt(DateTime created_at)
+        public Penjualan setCreatedAt(DateTime created_at)
         {
             this.created_at = created_at;
             return this;
@@ -102,7 +78,7 @@ namespace Latihan_Pos.Class
             return this.updated_at;
         }
 
-        public Customer setUpdatedAt(DateTime updated_at)
+        public Penjualan setUpdatedAt(DateTime updated_at)
         {
             this.updated_at = updated_at;
             return this;
@@ -133,11 +109,10 @@ namespace Latihan_Pos.Class
             }
             return dt;
         }
-
-        public static Customer FindOneById(int id)
+        public static Penjualan FindOneById(int id)
         {
             Database.OpenConnection();
-            string select = String.Concat("SELECT * FROM ", nama_tabel," WHERE id = @id");
+            string select = String.Concat("SELECT * FROM ", nama_tabel, " WHERE id = @id");
 
             Sql.MySqlDataAdapter da = new Sql.MySqlDataAdapter();
 
@@ -149,37 +124,63 @@ namespace Latihan_Pos.Class
             da.Fill(ds);
             Database.CloseConnection();
 
-            Customer cust = new Customer();
+            Penjualan penjualan = new Penjualan();
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = ds.Tables[0].Rows[0];
-                cust.setId(Convert.ToInt32(dr["id"]));
-                cust.setNama(dr["nama"].ToString());
-                cust.setAlamat(dr["alamat"].ToString());
-                cust.setNomorTelepon(dr["nomor_telepon"].ToString());
-                cust.setKodePos(dr["kode_pos"].ToString());
-                cust.setKota(dr["kota"].ToString());
-                cust.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
-                cust.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
+                penjualan.setId(Convert.ToInt32(dr["id"]));
+                penjualan.setKode(dr["kode"].ToString());
+                penjualan.setCustomer(Customer.FindOneById(Convert.ToInt16(dr["id_customer"])));
+                penjualan.setTotalHarga(Convert.ToDecimal(dr["total_harga"]));
+                penjualan.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
+                penjualan.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
 
-                return cust;
+                return penjualan;
             }
+            return null;
+        }
+        public static Penjualan FindOneByKode(string kode)
+        {
+            Database.OpenConnection();
+            string select = String.Concat("SELECT * FROM ", nama_tabel, " WHERE kode = @kode");
 
+            Sql.MySqlDataAdapter da = new Sql.MySqlDataAdapter();
+
+            da.SelectCommand = new Sql.MySqlCommand(select, Database.conn);
+            da.SelectCommand.Parameters.AddWithValue("@kode", kode);
+
+            Sql.MySqlCommandBuilder cb = new Sql.MySqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            Database.CloseConnection();
+
+            Penjualan penjualan = new Penjualan();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].Rows[0];
+                penjualan.setId(Convert.ToInt32(dr["id"]));
+                penjualan.setKode(dr["kode"].ToString());
+                penjualan.setCustomer(Customer.FindOneById(Convert.ToInt16(dr["id_customer"])));
+                penjualan.setTotalHarga(Convert.ToDecimal(dr["total_harga"]));
+                penjualan.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
+                penjualan.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
+
+                return penjualan;
+            }
             return null;
         }
 
         public void Insert()
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
-            string cmdText = String.Concat("INSERT INTO ", nama_tabel, "(nama ,");
-            cmdText += " kota, alamat, kode_pos, nomor_telepon, created_at, updated_at) ";
-            cmdText += " VALUES (@nama, @alamat, @kota, @kode_pos, @nomor_telepon, @created_at, @updated_at)";
-
-            cmd.Parameters.AddWithValue("@nama", this.nama);
-            cmd.Parameters.AddWithValue("@alamat", this.alamat);
-            cmd.Parameters.AddWithValue("@kota", this.kota);
-            cmd.Parameters.AddWithValue("@kode_pos", this.kode_pos);
-            cmd.Parameters.AddWithValue("@nomor_telepon", this.nomor_telepon);
+            string cmdText = String.Concat("INSERT INTO ", nama_tabel, "(id_customer ,");
+            cmdText += " kode ,total_harga, created_at, updated_at) ";
+            cmdText += " VALUES (@id_customer, @kode, @total_harga, @created_at, @updated_at)";
+            cmd.Parameters.AddWithValue("@id_customer", this.customer.getId());
+            cmd.Parameters.AddWithValue("@total_harga", this.total_harga);
+            cmd.Parameters.AddWithValue("@kode", this.kode);
             cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
 
@@ -201,15 +202,13 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = "UPDATE " + nama_tabel + " SET ";
-            cmdText += "alamat = @alamat, nama = @nama, kota = @kota, kode_pos = @kode_pos";
-            cmdText += ", nomor_telepon = @nomor_telepon, updated_at = @updated_at WHERE id = @id";
+            cmdText += "id_customer = @id_customer, total_harga = @total_harga, kode = @kode";
+            cmdText += ", updated_at = @updated_at WHERE id = @id";
 
+            cmd.Parameters.AddWithValue("@id_customer", this.customer.getId());
+            cmd.Parameters.AddWithValue("@total_harga", this.total_harga);
+            cmd.Parameters.AddWithValue("@kode", this.kode);
             cmd.Parameters.AddWithValue("@id", this.id);
-            cmd.Parameters.AddWithValue("@nama", this.nama);
-            cmd.Parameters.AddWithValue("@alamat", this.alamat);
-            cmd.Parameters.AddWithValue("@kota", this.kota);
-            cmd.Parameters.AddWithValue("@kode_pos", this.kode_pos);
-            cmd.Parameters.AddWithValue("@nomor_telepon", this.nomor_telepon);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
             cmd.CommandText = cmdText;
             try

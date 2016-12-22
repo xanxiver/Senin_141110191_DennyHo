@@ -33,6 +33,8 @@
             this.mtDaftar = new MetroFramework.Controls.MetroTile();
             this.mtEdit = new MetroFramework.Controls.MetroTile();
             this.mtHapus = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.mtTambahTransaksi = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // mtRegistrasi
@@ -100,11 +102,44 @@
             this.mtHapus.UseTileImage = true;
             this.mtHapus.Click += new System.EventHandler(this.mtHapus_Click);
             // 
+            // metroTile1
+            // 
+            this.metroTile1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroTile1.Location = new System.Drawing.Point(270, 447);
+            this.metroTile1.Margin = new System.Windows.Forms.Padding(20);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(175, 175);
+            this.metroTile1.TabIndex = 4;
+            this.metroTile1.Text = "Daftar Transaksi";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.metroTile1.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile1.TileImage")));
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile1.UseTileImage = true;
+            // 
+            // mtTambahTransaksi
+            // 
+            this.mtTambahTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtTambahTransaksi.Location = new System.Drawing.Point(485, 447);
+            this.mtTambahTransaksi.Margin = new System.Windows.Forms.Padding(20);
+            this.mtTambahTransaksi.Name = "mtTambahTransaksi";
+            this.mtTambahTransaksi.Size = new System.Drawing.Size(175, 175);
+            this.mtTambahTransaksi.TabIndex = 5;
+            this.mtTambahTransaksi.Text = "Tambah Transaksi";
+            this.mtTambahTransaksi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mtTambahTransaksi.TileImage = ((System.Drawing.Image)(resources.GetObject("mtTambahTransaksi.TileImage")));
+            this.mtTambahTransaksi.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mtTambahTransaksi.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mtTambahTransaksi.UseTileImage = true;
+            this.mtTambahTransaksi.Click += new System.EventHandler(this.mtTambahTransaksi_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 728);
+            this.Controls.Add(this.mtTambahTransaksi);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.mtHapus);
             this.Controls.Add(this.mtEdit);
             this.Controls.Add(this.mtDaftar);
@@ -125,6 +160,8 @@
         private MetroFramework.Controls.MetroTile mtDaftar;
         private MetroFramework.Controls.MetroTile mtEdit;
         private MetroFramework.Controls.MetroTile mtHapus;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile mtTambahTransaksi;
 
 
     }

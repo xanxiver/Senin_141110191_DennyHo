@@ -50,5 +50,12 @@ namespace Latihan_Pos
             hapusForm.ShowDialog();
             hapusForm.Dispose();
         }
+
+        private void mtTambahTransaksi_Click(object sender, EventArgs e)
+        {
+            frmTambahTransaksi tambahTransaksiForm = new frmTambahTransaksi();
+            tambahTransaksiForm.ShowDialog();
+            tambahTransaksiForm.Dispose();
+        }
     }
 }
