@@ -22,6 +22,8 @@ namespace Latihan_Pos.Menu
         public frmKelolaTransaksi()
         {
             InitializeComponent();
+
+            mtcTambahTransaksi.SelectTab(0);
         }
 
         private void btnBrowseCustomer_Click(object sender, EventArgs e)
@@ -54,7 +56,6 @@ namespace Latihan_Pos.Menu
             {
                 penjualanBaru.setCustomer(Customer.FindOneById(id_customer));
                 penjualanBaru.setKode(txtKodePenjualan.Text);
-                penjualanBaru.setTotalHarga(0);
                 try
                 {
                     penjualanBaru.Insert();
@@ -298,7 +299,6 @@ namespace Latihan_Pos.Menu
             {
                 pembelianBaru.setSupplier(Supplier.FindOneById(id_supplier));
                 pembelianBaru.setKode(txtKodePembelian.Text);
-                pembelianBaru.setTotalHarga(0);
                 try
                 {
                     pembelianBaru.Insert();

@@ -14,7 +14,6 @@ namespace Latihan_Pos.Class
         private int id;
         private string kode;
         private Supplier supplier;
-        private decimal total_harga;
         private DateTime created_at;
         private DateTime updated_at;
 
@@ -48,17 +47,6 @@ namespace Latihan_Pos.Class
         public Pembelian setSupplier(Supplier supplier)
         {
             this.supplier = supplier;
-            return this;
-        }
-
-        public decimal getTotalHarga()
-        {
-            return this.total_harga;
-        }
-
-        public Pembelian setTotalHarga(decimal harga_hpp)
-        {
-            this.total_harga = harga_hpp;
             return this;
         }
 
@@ -132,7 +120,6 @@ namespace Latihan_Pos.Class
                 pembelian.setId(Convert.ToInt32(dr["id"]));
                 pembelian.setKode(dr["kode"].ToString());
                 pembelian.setSupplier(Supplier.FindOneById(Convert.ToInt16(dr["id_supplier"])));
-                pembelian.setTotalHarga(Convert.ToDecimal(dr["total_harga"]));
                 pembelian.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
                 pembelian.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
 
@@ -163,7 +150,6 @@ namespace Latihan_Pos.Class
                 pembelian.setId(Convert.ToInt32(dr["id"]));
                 pembelian.setKode(dr["kode"].ToString());
                 pembelian.setSupplier(Supplier.FindOneById(Convert.ToInt16(dr["id_supplier"])));
-                pembelian.setTotalHarga(Convert.ToDecimal(dr["total_harga"]));
                 pembelian.setCreatedAt(Convert.ToDateTime(dr["created_at"]));
                 pembelian.setUpdatedAt(Convert.ToDateTime(dr["updated_at"]));
 
@@ -177,9 +163,8 @@ namespace Latihan_Pos.Class
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = String.Concat("INSERT INTO ", nama_tabel, "(id_supplier ,");
             cmdText += " kode ,total_harga, created_at, updated_at) ";
-            cmdText += " VALUES (@id_supplier, @kode, @total_harga, @created_at, @updated_at)";
+            cmdText += " VALUES (@id_supplier, @kode, @created_at, @updated_at)";
             cmd.Parameters.AddWithValue("@id_supplier", this.supplier.getId());
-            cmd.Parameters.AddWithValue("@total_harga", this.total_harga);
             cmd.Parameters.AddWithValue("@kode", this.kode);
             cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
@@ -202,11 +187,10 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = "UPDATE " + nama_tabel + " SET ";
-            cmdText += "id_supplier = @id_supplier, total_harga = @total_harga, kode = @kode";
+            cmdText += "id_supplier = @id_supplier, kode = @kode";
             cmdText += ", updated_at = @updated_at WHERE id = @id";
 
             cmd.Parameters.AddWithValue("@id_supplier", this.supplier.getId());
-            cmd.Parameters.AddWithValue("@total_harga", this.total_harga);
             cmd.Parameters.AddWithValue("@kode", this.kode);
             cmd.Parameters.AddWithValue("@id", this.id);
             cmd.Parameters.AddWithValue("@updated_at", DateTime.Now);
