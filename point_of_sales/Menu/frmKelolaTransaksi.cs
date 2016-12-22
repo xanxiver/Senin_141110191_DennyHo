@@ -13,13 +13,13 @@ using Latihan_Pos.CustomForm;
 
 namespace Latihan_Pos.Menu
 {
-    public partial class frmTambahTransaksi : MetroForm
+    public partial class frmKelolaTransaksi : MetroForm
     {
         private int id_barang_penjualan;
         private int id_barang_pembelian;
         private int id_customer;
         private int id_supplier;
-        public frmTambahTransaksi()
+        public frmKelolaTransaksi()
         {
             InitializeComponent();
         }
@@ -85,6 +85,10 @@ namespace Latihan_Pos.Menu
                 {
                     MessageBox.Show("Jumlah barang yang dipesan tidak mencukupi.");
                 }
+                else if (kuantitas < 0)
+                {
+                    MessageBox.Show("Kuantitas tidak valid.");
+                }
                 else
                 {
                     try
@@ -105,19 +109,24 @@ namespace Latihan_Pos.Menu
             {
                 Barang barang = penjualanDetail.getBarang();
                 int kuantitas = Convert.ToInt32(txtKuantitasPenjualan.Text);
-                penjualanDetail.setKuantitas(penjualanDetail.getKuantitas() + kuantitas);
+                int kuantitasLama = penjualanDetail.getKuantitas();
+                penjualanDetail.setKuantitas(kuantitas);
                 penjualanDetail.setHargaBarang(Convert.ToDecimal(txtHargaBarangPenjualan.Text));
 
-                if ( kuantitas > barang.getJumlah())
+                if ( kuantitas > barang.getJumlah() + kuantitasLama)
                 {
                     MessageBox.Show("Jumlah barang yang dipesan tidak mencukupi.");
+                }
+                else if (kuantitas < 0)
+                {
+                    MessageBox.Show("Kuantitas tidak valid.");
                 }
                 else
                 {
                     try
                     {
                         penjualanDetail.Update();
-                        barang.setJumlah(barang.getJumlah() - kuantitas);
+                        barang.setJumlah(barang.getJumlah() - kuantitas + kuantitasLama);
                         barang.Update();
                         MessageBox.Show("Barang dengan kode " + penjualanDetail.getBarang().getKode() +
                                         " pada faktur dengan kode " + penjualan.getKode());
@@ -221,7 +230,7 @@ namespace Latihan_Pos.Menu
                 {
                     sum += Convert.ToDecimal(dr["harga_barang"]) * Convert.ToInt32(dr["kuantitas"]);
                 }
-                txtTotalHarga.Text = sum.ToString();
+                txtTotalHargaPembelian.Text = sum.ToString();
             }
         }
 
@@ -335,21 +344,29 @@ namespace Latihan_Pos.Menu
             {
                 Barang barang = pembelianDetail.getBarang();
                 int kuantitas = Convert.ToInt32(txtKuantitasPembelian.Text);
-                pembelianDetail.setKuantitas(pembelianDetail.getKuantitas() + kuantitas);
+                int kuantitasLama = pembelianDetail.getKuantitas();
+                pembelianDetail.setKuantitas(kuantitas);
                 pembelianDetail.setHargaBarang(Convert.ToDecimal(txtHargaBarangPembelian.Text));
 
-                try
+                if (kuantitas < 0)
                 {
-                    pembelianDetail.Update();
-                    barang.setJumlah(barang.getJumlah() + kuantitas);
-                    barang.setHargaHpp(pembelianDetail.getHargaBarang());
-                    barang.Update();
-                    MessageBox.Show("Barang dengan kode " + pembelianDetail.getBarang().getKode() +
-                                    " pada faktur dengan kode " + pembelian.getKode());
+                    MessageBox.Show("Kuantitas tidak valid.");
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBox.Show(error.Message);
+                    try
+                    {
+                        pembelianDetail.Update();
+                        barang.setJumlah(barang.getJumlah() + kuantitas - kuantitasLama);
+                        barang.setHargaHpp(pembelianDetail.getHargaBarang());
+                        barang.Update();
+                        MessageBox.Show("Barang dengan kode " + pembelianDetail.getBarang().getKode() +
+                                        " pada faktur dengan kode " + pembelian.getKode());
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
                 }
             }
 
@@ -362,7 +379,7 @@ namespace Latihan_Pos.Menu
             {
                 sum += Convert.ToDecimal(dr["harga_barang"]) * Convert.ToInt32(dr["kuantitas"]);
             }
-            txtTotalHarga.Text = sum.ToString();
+            txtTotalHargaPembelian.Text = sum.ToString();
         }
     }
 }

@@ -116,6 +116,7 @@
             this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile1.UseTileImage = true;
+            this.metroTile1.Click += new System.EventHandler(this.mtLihatTransaksi_Click);
             // 
             // mtTambahTransaksi
             // 
@@ -125,7 +126,7 @@
             this.mtTambahTransaksi.Name = "mtTambahTransaksi";
             this.mtTambahTransaksi.Size = new System.Drawing.Size(175, 175);
             this.mtTambahTransaksi.TabIndex = 5;
-            this.mtTambahTransaksi.Text = "Tambah Transaksi";
+            this.mtTambahTransaksi.Text = "Kelola Transaksi";
             this.mtTambahTransaksi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mtTambahTransaksi.TileImage = ((System.Drawing.Image)(resources.GetObject("mtTambahTransaksi.TileImage")));
             this.mtTambahTransaksi.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -1,6 +1,6 @@
 ﻿namespace Latihan_Pos.Menu
 {
-    partial class frmTambahTransaksi
+    partial class frmKelolaTransaksi
     {
         /// <summary>
         /// Required designer variable.
@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.mtpPembelian = new MetroFramework.Controls.MetroTabPage();
+            this.btnTambahPembelian = new MetroFramework.Controls.MetroButton();
             this.txtTotalHargaPembelian = new System.Windows.Forms.TextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtSubTotalHargaPembelian = new System.Windows.Forms.TextBox();
+            this.txtKuantitasPembelian = new System.Windows.Forms.TextBox();
+            this.txtHargaBarangPembelian = new System.Windows.Forms.TextBox();
+            this.txtBarangPembelian = new System.Windows.Forms.TextBox();
+            this.txtKodePembelian = new System.Windows.Forms.TextBox();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.btnBrowseBarangPembelian = new MetroFramework.Controls.MetroButton();
             this.dgvPembelianDetail = new System.Windows.Forms.DataGridView();
-            this.txtKuantitasPembelian = new System.Windows.Forms.TextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.txtHargaBarangPembelian = new System.Windows.Forms.TextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.txtBarangPembelian = new System.Windows.Forms.TextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.btnBrowseKodePembelian = new MetroFramework.Controls.MetroButton();
-            this.btnTambahPembelian = new MetroFramework.Controls.MetroButton();
-            this.txtKodePembelian = new System.Windows.Forms.TextBox();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.btnBrowseSupplier = new MetroFramework.Controls.MetroButton();
-            this.txtSupplier = new System.Windows.Forms.TextBox();
             this.lblSupplier = new MetroFramework.Controls.MetroLabel();
             this.mtcTambahTransaksi = new MetroFramework.Controls.MetroTabControl();
             this.mtpPenjualan = new MetroFramework.Controls.MetroTabPage();
@@ -63,12 +63,12 @@
             this.txtBarangPenjualan = new System.Windows.Forms.TextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.btnBrowseKodePenjualan = new MetroFramework.Controls.MetroButton();
-            this.btnTambahPenjualan = new MetroFramework.Controls.MetroButton();
             this.txtKodePenjualan = new System.Windows.Forms.TextBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.btnBrowseCustomer = new MetroFramework.Controls.MetroButton();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.mtpPembelian.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPembelianDetail)).BeginInit();
             this.mtcTambahTransaksi.SuspendLayout();
@@ -78,24 +78,24 @@
             // 
             // mtpPembelian
             // 
+            this.mtpPembelian.Controls.Add(this.btnTambahPembelian);
             this.mtpPembelian.Controls.Add(this.txtTotalHargaPembelian);
-            this.mtpPembelian.Controls.Add(this.metroLabel6);
             this.mtpPembelian.Controls.Add(this.txtSubTotalHargaPembelian);
+            this.mtpPembelian.Controls.Add(this.txtKuantitasPembelian);
+            this.mtpPembelian.Controls.Add(this.txtHargaBarangPembelian);
+            this.mtpPembelian.Controls.Add(this.txtBarangPembelian);
+            this.mtpPembelian.Controls.Add(this.txtKodePembelian);
+            this.mtpPembelian.Controls.Add(this.txtSupplier);
+            this.mtpPembelian.Controls.Add(this.metroLabel6);
             this.mtpPembelian.Controls.Add(this.metroLabel7);
             this.mtpPembelian.Controls.Add(this.btnBrowseBarangPembelian);
             this.mtpPembelian.Controls.Add(this.dgvPembelianDetail);
-            this.mtpPembelian.Controls.Add(this.txtKuantitasPembelian);
             this.mtpPembelian.Controls.Add(this.metroLabel8);
-            this.mtpPembelian.Controls.Add(this.txtHargaBarangPembelian);
             this.mtpPembelian.Controls.Add(this.metroLabel10);
-            this.mtpPembelian.Controls.Add(this.txtBarangPembelian);
             this.mtpPembelian.Controls.Add(this.metroLabel11);
             this.mtpPembelian.Controls.Add(this.btnBrowseKodePembelian);
-            this.mtpPembelian.Controls.Add(this.btnTambahPembelian);
-            this.mtpPembelian.Controls.Add(this.txtKodePembelian);
             this.mtpPembelian.Controls.Add(this.metroLabel12);
             this.mtpPembelian.Controls.Add(this.btnBrowseSupplier);
-            this.mtpPembelian.Controls.Add(this.txtSupplier);
             this.mtpPembelian.Controls.Add(this.lblSupplier);
             this.mtpPembelian.HorizontalScrollbarBarColor = true;
             this.mtpPembelian.Location = new System.Drawing.Point(4, 35);
@@ -105,30 +105,26 @@
             this.mtpPembelian.Text = "Pembelian";
             this.mtpPembelian.VerticalScrollbarBarColor = true;
             // 
+            // btnTambahPembelian
+            // 
+            this.btnTambahPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTambahPembelian.Location = new System.Drawing.Point(497, 19);
+            this.btnTambahPembelian.Name = "btnTambahPembelian";
+            this.btnTambahPembelian.Size = new System.Drawing.Size(99, 45);
+            this.btnTambahPembelian.TabIndex = 85;
+            this.btnTambahPembelian.Text = "Tambah";
+            this.btnTambahPembelian.Click += new System.EventHandler(this.btnTambahPembelian_Click);
+            // 
             // txtTotalHargaPembelian
             // 
             this.txtTotalHargaPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalHargaPembelian.Enabled = false;
-            this.txtTotalHargaPembelian.Location = new System.Drawing.Point(331, 349);
+            this.txtTotalHargaPembelian.Location = new System.Drawing.Point(311, 349);
             this.txtTotalHargaPembelian.Name = "txtTotalHargaPembelian";
-            this.txtTotalHargaPembelian.Size = new System.Drawing.Size(265, 20);
-            this.txtTotalHargaPembelian.TabIndex = 60;
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(223, 344);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(102, 25);
-            this.metroLabel6.TabIndex = 59;
-            this.metroLabel6.Text = "Total Harga";
+            this.txtTotalHargaPembelian.Size = new System.Drawing.Size(285, 20);
+            this.txtTotalHargaPembelian.TabIndex = 84;
             // 
             // txtSubTotalHargaPembelian
             // 
@@ -138,8 +134,76 @@
             this.txtSubTotalHargaPembelian.Enabled = false;
             this.txtSubTotalHargaPembelian.Location = new System.Drawing.Point(141, 145);
             this.txtSubTotalHargaPembelian.Name = "txtSubTotalHargaPembelian";
-            this.txtSubTotalHargaPembelian.Size = new System.Drawing.Size(243, 20);
-            this.txtSubTotalHargaPembelian.TabIndex = 58;
+            this.txtSubTotalHargaPembelian.Size = new System.Drawing.Size(247, 20);
+            this.txtSubTotalHargaPembelian.TabIndex = 83;
+            // 
+            // txtKuantitasPembelian
+            // 
+            this.txtKuantitasPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKuantitasPembelian.Location = new System.Drawing.Point(141, 120);
+            this.txtKuantitasPembelian.Name = "txtKuantitasPembelian";
+            this.txtKuantitasPembelian.Size = new System.Drawing.Size(247, 20);
+            this.txtKuantitasPembelian.TabIndex = 82;
+            this.txtKuantitasPembelian.TextChanged += new System.EventHandler(this.txtKuantitasPembelian_TextChanged);
+            // 
+            // txtHargaBarangPembelian
+            // 
+            this.txtHargaBarangPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHargaBarangPembelian.Location = new System.Drawing.Point(141, 94);
+            this.txtHargaBarangPembelian.Name = "txtHargaBarangPembelian";
+            this.txtHargaBarangPembelian.Size = new System.Drawing.Size(247, 20);
+            this.txtHargaBarangPembelian.TabIndex = 81;
+            this.txtHargaBarangPembelian.TextChanged += new System.EventHandler(this.txtHargaBarangPembelian_TextChanged);
+            // 
+            // txtBarangPembelian
+            // 
+            this.txtBarangPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBarangPembelian.Enabled = false;
+            this.txtBarangPembelian.Location = new System.Drawing.Point(141, 69);
+            this.txtBarangPembelian.Name = "txtBarangPembelian";
+            this.txtBarangPembelian.Size = new System.Drawing.Size(247, 20);
+            this.txtBarangPembelian.TabIndex = 80;
+            // 
+            // txtKodePembelian
+            // 
+            this.txtKodePembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKodePembelian.Location = new System.Drawing.Point(141, 19);
+            this.txtKodePembelian.Name = "txtKodePembelian";
+            this.txtKodePembelian.Size = new System.Drawing.Size(247, 20);
+            this.txtKodePembelian.TabIndex = 79;
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSupplier.Enabled = false;
+            this.txtSupplier.Location = new System.Drawing.Point(141, 44);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(247, 20);
+            this.txtSupplier.TabIndex = 78;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(203, 344);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(102, 25);
+            this.metroLabel6.TabIndex = 59;
+            this.metroLabel6.Text = "Total Harga";
             // 
             // metroLabel7
             // 
@@ -173,17 +237,6 @@
             this.dgvPembelianDetail.Size = new System.Drawing.Size(593, 170);
             this.dgvPembelianDetail.TabIndex = 55;
             // 
-            // txtKuantitasPembelian
-            // 
-            this.txtKuantitasPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKuantitasPembelian.Location = new System.Drawing.Point(141, 120);
-            this.txtKuantitasPembelian.Name = "txtKuantitasPembelian";
-            this.txtKuantitasPembelian.Size = new System.Drawing.Size(243, 20);
-            this.txtKuantitasPembelian.TabIndex = 54;
-            this.txtKuantitasPembelian.TextChanged += new System.EventHandler(this.txtKuantitasPembelian_TextChanged);
-            // 
             // metroLabel8
             // 
             this.metroLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -198,17 +251,6 @@
             this.metroLabel8.TabIndex = 53;
             this.metroLabel8.Text = "Kuantitas";
             // 
-            // txtHargaBarangPembelian
-            // 
-            this.txtHargaBarangPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHargaBarangPembelian.Location = new System.Drawing.Point(141, 94);
-            this.txtHargaBarangPembelian.Name = "txtHargaBarangPembelian";
-            this.txtHargaBarangPembelian.Size = new System.Drawing.Size(243, 20);
-            this.txtHargaBarangPembelian.TabIndex = 52;
-            this.txtHargaBarangPembelian.TextChanged += new System.EventHandler(this.txtHargaBarangPembelian_TextChanged);
-            // 
             // metroLabel10
             // 
             this.metroLabel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -222,17 +264,6 @@
             this.metroLabel10.Size = new System.Drawing.Size(120, 25);
             this.metroLabel10.TabIndex = 51;
             this.metroLabel10.Text = "Harga Barang";
-            // 
-            // txtBarangPembelian
-            // 
-            this.txtBarangPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBarangPembelian.Enabled = false;
-            this.txtBarangPembelian.Location = new System.Drawing.Point(141, 69);
-            this.txtBarangPembelian.Name = "txtBarangPembelian";
-            this.txtBarangPembelian.Size = new System.Drawing.Size(243, 20);
-            this.txtBarangPembelian.TabIndex = 50;
             // 
             // metroLabel11
             // 
@@ -257,26 +288,6 @@
             this.btnBrowseKodePembelian.Text = "Browse";
             this.btnBrowseKodePembelian.Click += new System.EventHandler(this.btnBrowseKodePembelian_Click);
             // 
-            // btnTambahPembelian
-            // 
-            this.btnTambahPembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTambahPembelian.Location = new System.Drawing.Point(498, 19);
-            this.btnTambahPembelian.Name = "btnTambahPembelian";
-            this.btnTambahPembelian.Size = new System.Drawing.Size(99, 45);
-            this.btnTambahPembelian.TabIndex = 44;
-            this.btnTambahPembelian.Text = "Tambah";
-            this.btnTambahPembelian.Click += new System.EventHandler(this.btnTambahPembelian_Click);
-            // 
-            // txtKodePembelian
-            // 
-            this.txtKodePembelian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKodePembelian.Location = new System.Drawing.Point(141, 19);
-            this.txtKodePembelian.Name = "txtKodePembelian";
-            this.txtKodePembelian.Size = new System.Drawing.Size(243, 20);
-            this.txtKodePembelian.TabIndex = 47;
-            // 
             // metroLabel12
             // 
             this.metroLabel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -300,17 +311,6 @@
             this.btnBrowseSupplier.Text = "Browse";
             this.btnBrowseSupplier.Click += new System.EventHandler(this.btnBrowseSupplier_Click);
             // 
-            // txtSupplier
-            // 
-            this.txtSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSupplier.Enabled = false;
-            this.txtSupplier.Location = new System.Drawing.Point(141, 44);
-            this.txtSupplier.Name = "txtSupplier";
-            this.txtSupplier.Size = new System.Drawing.Size(243, 20);
-            this.txtSupplier.TabIndex = 43;
-            // 
             // lblSupplier
             // 
             this.lblSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -327,8 +327,8 @@
             // 
             // mtcTambahTransaksi
             // 
-            this.mtcTambahTransaksi.Controls.Add(this.mtpPenjualan);
             this.mtcTambahTransaksi.Controls.Add(this.mtpPembelian);
+            this.mtcTambahTransaksi.Controls.Add(this.mtpPenjualan);
             this.mtcTambahTransaksi.Location = new System.Drawing.Point(24, 64);
             this.mtcTambahTransaksi.Name = "mtcTambahTransaksi";
             this.mtcTambahTransaksi.SelectedIndex = 1;
@@ -337,6 +337,7 @@
             // 
             // mtpPenjualan
             // 
+            this.mtpPenjualan.Controls.Add(this.metroButton1);
             this.mtpPenjualan.Controls.Add(this.txtTotalHarga);
             this.mtpPenjualan.Controls.Add(this.metroLabel1);
             this.mtpPenjualan.Controls.Add(this.txtSubTotalHargaPenjualan);
@@ -350,7 +351,6 @@
             this.mtpPenjualan.Controls.Add(this.txtBarangPenjualan);
             this.mtpPenjualan.Controls.Add(this.metroLabel5);
             this.mtpPenjualan.Controls.Add(this.btnBrowseKodePenjualan);
-            this.mtpPenjualan.Controls.Add(this.btnTambahPenjualan);
             this.mtpPenjualan.Controls.Add(this.txtKodePenjualan);
             this.mtpPenjualan.Controls.Add(this.metroLabel9);
             this.mtpPenjualan.Controls.Add(this.btnBrowseCustomer);
@@ -370,9 +370,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalHarga.Enabled = false;
-            this.txtTotalHarga.Location = new System.Drawing.Point(330, 347);
+            this.txtTotalHarga.Location = new System.Drawing.Point(310, 347);
             this.txtTotalHarga.Name = "txtTotalHarga";
-            this.txtTotalHarga.Size = new System.Drawing.Size(265, 20);
+            this.txtTotalHarga.Size = new System.Drawing.Size(285, 20);
             this.txtTotalHarga.TabIndex = 79;
             // 
             // metroLabel1
@@ -383,7 +383,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(222, 342);
+            this.metroLabel1.Location = new System.Drawing.Point(202, 342);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(102, 25);
             this.metroLabel1.TabIndex = 78;
@@ -395,9 +395,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSubTotalHargaPenjualan.Enabled = false;
-            this.txtSubTotalHargaPenjualan.Location = new System.Drawing.Point(140, 143);
+            this.txtSubTotalHargaPenjualan.Location = new System.Drawing.Point(141, 143);
             this.txtSubTotalHargaPenjualan.Name = "txtSubTotalHargaPenjualan";
-            this.txtSubTotalHargaPenjualan.Size = new System.Drawing.Size(243, 20);
+            this.txtSubTotalHargaPenjualan.Size = new System.Drawing.Size(249, 20);
             this.txtSubTotalHargaPenjualan.TabIndex = 77;
             // 
             // metroLabel2
@@ -408,7 +408,7 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(2, 138);
+            this.metroLabel2.Location = new System.Drawing.Point(3, 138);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(132, 25);
             this.metroLabel2.TabIndex = 76;
@@ -437,9 +437,9 @@
             this.txtKuantitasPenjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKuantitasPenjualan.Location = new System.Drawing.Point(140, 118);
+            this.txtKuantitasPenjualan.Location = new System.Drawing.Point(141, 118);
             this.txtKuantitasPenjualan.Name = "txtKuantitasPenjualan";
-            this.txtKuantitasPenjualan.Size = new System.Drawing.Size(243, 20);
+            this.txtKuantitasPenjualan.Size = new System.Drawing.Size(249, 20);
             this.txtKuantitasPenjualan.TabIndex = 73;
             this.txtKuantitasPenjualan.TextChanged += new System.EventHandler(this.txtKuantitasPenjualan_TextChanged);
             // 
@@ -462,9 +462,9 @@
             this.txtHargaBarangPenjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHargaBarangPenjualan.Location = new System.Drawing.Point(140, 92);
+            this.txtHargaBarangPenjualan.Location = new System.Drawing.Point(141, 92);
             this.txtHargaBarangPenjualan.Name = "txtHargaBarangPenjualan";
-            this.txtHargaBarangPenjualan.Size = new System.Drawing.Size(243, 20);
+            this.txtHargaBarangPenjualan.Size = new System.Drawing.Size(249, 20);
             this.txtHargaBarangPenjualan.TabIndex = 71;
             this.txtHargaBarangPenjualan.TextChanged += new System.EventHandler(this.txtHargaBarangPenjualan_TextChanged);
             // 
@@ -488,9 +488,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBarangPenjualan.Enabled = false;
-            this.txtBarangPenjualan.Location = new System.Drawing.Point(140, 67);
+            this.txtBarangPenjualan.Location = new System.Drawing.Point(141, 67);
             this.txtBarangPenjualan.Name = "txtBarangPenjualan";
-            this.txtBarangPenjualan.Size = new System.Drawing.Size(243, 20);
+            this.txtBarangPenjualan.Size = new System.Drawing.Size(249, 20);
             this.txtBarangPenjualan.TabIndex = 69;
             // 
             // metroLabel5
@@ -516,24 +516,14 @@
             this.btnBrowseKodePenjualan.Text = "Browse";
             this.btnBrowseKodePenjualan.Click += new System.EventHandler(this.btnBrowseKode_Click);
             // 
-            // btnTambahPenjualan
-            // 
-            this.btnTambahPenjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTambahPenjualan.Location = new System.Drawing.Point(497, 17);
-            this.btnTambahPenjualan.Name = "btnTambahPenjualan";
-            this.btnTambahPenjualan.Size = new System.Drawing.Size(99, 45);
-            this.btnTambahPenjualan.TabIndex = 63;
-            this.btnTambahPenjualan.Text = "Tambah";
-            this.btnTambahPenjualan.Click += new System.EventHandler(this.btnSimpanPenjualan_Click);
-            // 
             // txtKodePenjualan
             // 
             this.txtKodePenjualan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKodePenjualan.Location = new System.Drawing.Point(140, 17);
+            this.txtKodePenjualan.Location = new System.Drawing.Point(141, 17);
             this.txtKodePenjualan.Name = "txtKodePenjualan";
-            this.txtKodePenjualan.Size = new System.Drawing.Size(243, 20);
+            this.txtKodePenjualan.Size = new System.Drawing.Size(249, 20);
             this.txtKodePenjualan.TabIndex = 66;
             // 
             // metroLabel9
@@ -565,9 +555,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomer.Enabled = false;
-            this.txtCustomer.Location = new System.Drawing.Point(140, 42);
+            this.txtCustomer.Location = new System.Drawing.Point(141, 42);
             this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.Size = new System.Drawing.Size(243, 20);
+            this.txtCustomer.Size = new System.Drawing.Size(249, 20);
             this.txtCustomer.TabIndex = 62;
             // 
             // metroLabel13
@@ -584,13 +574,23 @@
             this.metroLabel13.TabIndex = 61;
             this.metroLabel13.Text = "Customer";
             // 
-            // frmTambahTransaksi
+            // metroButton1
+            // 
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton1.Location = new System.Drawing.Point(496, 17);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(99, 45);
+            this.metroButton1.TabIndex = 86;
+            this.metroButton1.Text = "Tambah";
+            this.metroButton1.Click += new System.EventHandler(this.btnSimpanPenjualan_Click);
+            // 
+            // frmKelolaTransaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 504);
             this.Controls.Add(this.mtcTambahTransaksi);
-            this.Name = "frmTambahTransaksi";
+            this.Name = "frmKelolaTransaksi";
             this.Resizable = false;
             this.Text = "Tambah Transaksi";
             this.mtpPembelian.ResumeLayout(false);
@@ -607,24 +607,15 @@
         #endregion
 
         private MetroFramework.Controls.MetroTabPage mtpPembelian;
-        private System.Windows.Forms.TextBox txtTotalHargaPembelian;
         private MetroFramework.Controls.MetroLabel metroLabel6;
-        private System.Windows.Forms.TextBox txtSubTotalHargaPembelian;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroButton btnBrowseBarangPembelian;
         private System.Windows.Forms.DataGridView dgvPembelianDetail;
-        private System.Windows.Forms.TextBox txtKuantitasPembelian;
         private MetroFramework.Controls.MetroLabel metroLabel8;
-        private System.Windows.Forms.TextBox txtHargaBarangPembelian;
         private MetroFramework.Controls.MetroLabel metroLabel10;
-        private System.Windows.Forms.TextBox txtBarangPembelian;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroButton btnBrowseKodePembelian;
-        private MetroFramework.Controls.MetroButton btnTambahPembelian;
-        private System.Windows.Forms.TextBox txtKodePembelian;
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private MetroFramework.Controls.MetroButton btnBrowseSupplier;
-        private System.Windows.Forms.TextBox txtSupplier;
         private MetroFramework.Controls.MetroLabel lblSupplier;
         private MetroFramework.Controls.MetroTabControl mtcTambahTransaksi;
         private MetroFramework.Controls.MetroTabPage mtpPenjualan;
@@ -641,12 +632,21 @@
         private System.Windows.Forms.TextBox txtBarangPenjualan;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroButton btnBrowseKodePenjualan;
-        private MetroFramework.Controls.MetroButton btnTambahPenjualan;
         private System.Windows.Forms.TextBox txtKodePenjualan;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroButton btnBrowseCustomer;
         private System.Windows.Forms.TextBox txtCustomer;
         private MetroFramework.Controls.MetroLabel metroLabel13;
+        private System.Windows.Forms.TextBox txtSubTotalHargaPembelian;
+        private System.Windows.Forms.TextBox txtKuantitasPembelian;
+        private System.Windows.Forms.TextBox txtHargaBarangPembelian;
+        private System.Windows.Forms.TextBox txtBarangPembelian;
+        private System.Windows.Forms.TextBox txtKodePembelian;
+        private System.Windows.Forms.TextBox txtSupplier;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private System.Windows.Forms.TextBox txtTotalHargaPembelian;
+        private MetroFramework.Controls.MetroButton btnTambahPembelian;
+        private MetroFramework.Controls.MetroButton metroButton1;
 
     }
 }

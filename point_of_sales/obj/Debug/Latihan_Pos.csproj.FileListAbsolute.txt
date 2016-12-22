@@ -30,4 +30,5 @@ E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\De
 E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.csproj.GenerateResource.Cache
 E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.exe
 E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.pdb
-E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmTambahTransaksi.resources
+E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmLihatTransaksi.resources
+E:\mikroskil\Semester 5\New folder\Senin_141110191_DennyHo\point_of_sales\obj\Debug\Latihan_Pos.Menu.frmKelolaTransaksi.resources

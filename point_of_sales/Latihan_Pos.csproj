@@ -111,11 +111,17 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\frmTambahTransaksi.cs">
+    <Compile Include="Menu\frmLihatTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\frmTambahTransaksi.Designer.cs">
-      <DependentUpon>frmTambahTransaksi.cs</DependentUpon>
+    <Compile Include="Menu\frmLihatTransaksi.Designer.cs">
+      <DependentUpon>frmLihatTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmKelolaTransaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmKelolaTransaksi.Designer.cs">
+      <DependentUpon>frmKelolaTransaksi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,8 +146,11 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\frmTambahTransaksi.resx">
-      <DependentUpon>frmTambahTransaksi.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\frmLihatTransaksi.resx">
+      <DependentUpon>frmLihatTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmKelolaTransaksi.resx">
+      <DependentUpon>frmKelolaTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

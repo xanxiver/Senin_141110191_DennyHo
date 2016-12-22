@@ -53,9 +53,16 @@ namespace Latihan_Pos
 
         private void mtTambahTransaksi_Click(object sender, EventArgs e)
         {
-            frmTambahTransaksi tambahTransaksiForm = new frmTambahTransaksi();
-            tambahTransaksiForm.ShowDialog();
-            tambahTransaksiForm.Dispose();
+            frmKelolaTransaksi kelolaTransaksiForm = new frmKelolaTransaksi();
+            kelolaTransaksiForm.ShowDialog();
+            kelolaTransaksiForm.Dispose();
+        }
+
+        private void mtLihatTransaksi_Click(object sender, EventArgs e)
+        {
+            frmLihatTransaksi lihatTransaksiForm = new frmLihatTransaksi();
+            lihatTransaksiForm.ShowDialog();
+            lihatTransaksiForm.Dispose();
         }
     }
 }
