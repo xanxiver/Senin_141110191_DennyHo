@@ -162,7 +162,7 @@ namespace Latihan_Pos.Class
         {
             Sql.MySqlCommand cmd = Database.conn.CreateCommand();
             string cmdText = String.Concat("INSERT INTO ", nama_tabel, "(id_supplier ,");
-            cmdText += " kode ,total_harga, created_at, updated_at) ";
+            cmdText += " kode , created_at, updated_at) ";
             cmdText += " VALUES (@id_supplier, @kode, @created_at, @updated_at)";
             cmd.Parameters.AddWithValue("@id_supplier", this.supplier.getId());
             cmd.Parameters.AddWithValue("@kode", this.kode);
